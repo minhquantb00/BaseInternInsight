@@ -1,0 +1,12 @@
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\bin\Debug\net6.0\BaseInsightDotNet.Commons.deps.json
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\bin\Debug\net6.0\BaseInsightDotNet.Commons.dll
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\bin\Debug\net6.0\BaseInsightDotNet.Commons.pdb
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.csproj.AssemblyReference.cache
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.AssemblyInfoInputs.cache
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.AssemblyInfo.cs
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.csproj.CoreCompileInputs.cache
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.dll
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\refint\BaseInsightDotNet.Commons.dll
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\BaseInsightDotNet.Commons.pdb
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Commons\obj\Debug\net6.0\ref\BaseInsightDotNet.Commons.dll

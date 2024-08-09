@@ -1,0 +1,1113 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ProjectCSharp\\BaseInsightDotNet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.presentation\\configuration\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|solutionrelative:baseinsightdotnet.presentation\\configuration\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|solutionrelative:baseinsightdotnet.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\implementservices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\implementservices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\unitofwork\\implements\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\unitofwork\\implements\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\repository\\implements\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\repository\\implements\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\unitofwork\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\unitofwork\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\repository\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\repository\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\data\\idbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\data\\idbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|solutionrelative:baseinsightdotnet.core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\configure\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\configure\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|solutionrelative:baseinsightdotnet.presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\implementservices\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\implementservices\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\interfaceservices\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\interfaceservices\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\interfaceservices\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\interfaceservices\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\base\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\base\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\base\\ihaskey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\base\\ihaskey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\base\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\base\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\baseinsightdotnet.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\baseinsightdotnet.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responsemodels\\dataresponsebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responsemodels\\dataresponsebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responsemodels\\datauser\\dataresponseuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responsemodels\\datauser\\dataresponseuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.core\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|solutionrelative:baseinsightdotnet.core\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\baseinsightdotnet.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\baseinsightdotnet.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\converters\\userconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\converters\\userconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.core\\entities\\confirmemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|solutionrelative:baseinsightdotnet.core\\entities\\confirmemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\clientservice\\identityuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\clientservice\\identityuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_renewaccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_renewaccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\requestmodels\\userrequest\\request_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\enums\\enumerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\enums\\enumerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responsemodels\\dataresponsemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responsemodels\\dataresponsemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responsemodels\\dataresponseloginotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responsemodels\\dataresponseloginotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responsemodels\\dataresponselogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responsemodels\\dataresponselogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\requestmodels\\request_message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\requestmodels\\request_message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\payloads\\responseobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\payloads\\responseobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\configuration\\emailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\configuration\\emailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2E42A5C1-2984-4D66-91BC-E118ADB153EE}|BaseInsightDotNet.Presentation\\BaseInsightDotNet.Presentation.csproj|solutionrelative:baseinsightdotnet.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.business\\clientservice\\iidentityuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9423661-C126-4CF6-82C0-6A54BAB08D2A}|BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj|solutionrelative:baseinsightdotnet.business\\clientservice\\iidentityuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\tracing\\aspnetcorecorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\tracing\\aspnetcorecorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\tracing\\correlationidmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\tracing\\correlationidmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\tracing\\defaultcorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\tracing\\defaultcorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\tracing\\icorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\tracing\\icorrelationidprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\tracing\\correlationidoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\tracing\\correlationidoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\seeddata\\identitydbcontextseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\seeddata\\identitydbcontextseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\constants\\constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\constants\\constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\delegation\\delegationgrantvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\delegation\\delegationgrantvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.core\\entities\\applicationuserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|solutionrelative:baseinsightdotnet.core\\entities\\applicationuserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.core\\entities\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30631E50-1CA7-4CB5-AF7B-88C0F2F55858}|BaseInsightDotNet.Core\\BaseInsightDotNet.Core.csproj|solutionrelative:baseinsightdotnet.core\\entities\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\utilitiesglobal\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\utilitiesglobal\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\enumerableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\enumerableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\datetimeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\datetimeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\conversionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\conversionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\exceptions\\invalidexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\exceptions\\invalidexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\exceptions\\existexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\exceptions\\existexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.commons\\base\\baseentitysoftdeletetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB93B255-FBB1-44E0-B081-623835ED8E8A}|BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj|solutionrelative:baseinsightdotnet.commons\\base\\baseentitysoftdeletetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\migrations\\20240808135910_initialver2.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\migrations\\20240808135910_initialver2.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|d:\\projectcsharp\\baseinsightdotnet\\baseinsightdotnet.dataaccess\\migrations\\20240808130206_initialver1.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E32F6E2-7F3D-4800-9685-C824053B4E82}|BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj|solutionrelative:baseinsightdotnet.dataaccess\\migrations\\20240808130206_initialver1.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 32,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\UnitOfWork\\Implements\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\UnitOfWork\\Implements\\UnitOfWork.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\UnitOfWork\\Implements\\UnitOfWork.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\UnitOfWork\\Implements\\UnitOfWork.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAuwDIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T03:29:48.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IDbContext.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Data\\IDbContext.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Data\\IDbContext.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Data\\IDbContext.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Data\\IDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T03:25:27.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Repository\\Implements\\Repository.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Repository\\Implements\\Repository.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Repository\\Implements\\Repository.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Repository\\Implements\\Repository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T03:16:34.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ImplementServices\\AuthService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\ImplementServices\\AuthService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ImplementServices\\AuthService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\ImplementServices\\AuthService.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAUwIsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:54:21.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Presentation\\Program.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Program.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Presentation\\Program.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAAwGgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:36:55.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IdentityDbContext.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Data\\IdentityDbContext.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Data\\IdentityDbContext.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Data\\IdentityDbContext.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Data\\IdentityDbContext.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAkwCYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T10:01:43.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Base\\BaseEntity.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\BaseEntity.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Base\\BaseEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:15:02.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Core\\Entities\\ApplicationUser.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Core\\Entities\\ApplicationUser.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T09:29:31.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "20240808130206_initialver1.0.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Migrations\\20240808130206_initialver1.0.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Migrations\\20240808130206_initialver1.0.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Migrations\\20240808130206_initialver1.0.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Migrations\\20240808130206_initialver1.0.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T13:02:06.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConfigureService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Configuration\\ConfigureService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Presentation\\Configuration\\ConfigureService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Configuration\\ConfigureService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Presentation\\Configuration\\ConfigureService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T13:04:20.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Presentation\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Presentation\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T13:38:09.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ImplementServices\\EmailService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\ImplementServices\\EmailService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ImplementServices\\EmailService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\ImplementServices\\EmailService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAYwB0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:28:40.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IEntity.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\IEntity.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Base\\IEntity.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\IEntity.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Base\\IEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T12:55:19.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Repository\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Repository\\Interfaces\\IRepository.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Repository\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Repository\\Interfaces\\IRepository.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwCsAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T12:55:19.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\UnitOfWork\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\UnitOfWork\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\UnitOfWork\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\UnitOfWork\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T12:55:19.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\InterfaceServices\\IEmailService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\InterfaceServices\\IEmailService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\InterfaceServices\\IEmailService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\InterfaceServices\\IEmailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:28:15.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ConfigureService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Configure\\ConfigureService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Configure\\ConfigureService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Configure\\ConfigureService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Configure\\ConfigureService.cs",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAEwBoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T10:10:02.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IHasKey.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\IHasKey.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Base\\IHasKey.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\IHasKey.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Base\\IHasKey.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T12:55:19.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\InterfaceServices\\IAuthService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\InterfaceServices\\IAuthService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\InterfaceServices\\IAuthService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\InterfaceServices\\IAuthService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAcwA8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:43:11.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "20240808135910_initialver2.0.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Migrations\\20240808135910_initialver2.0.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Migrations\\20240808135910_initialver2.0.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Migrations\\20240808135910_initialver2.0.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Migrations\\20240808135910_initialver2.0.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAywC4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T13:59:10.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BaseInsightDotNet.Business.csproj",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\BaseInsightDotNet.Business.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-08T12:55:19.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BaseInsightDotNet.DataAccess.csproj",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\BaseInsightDotNet.DataAccess.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-08T12:55:19.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserConverter.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\Converters\\UserConverter.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\Converters\\UserConverter.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\Converters\\UserConverter.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\Converters\\UserConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T12:55:17.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Request_RenewAccessToken.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_RenewAccessToken.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_RenewAccessToken.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_RenewAccessToken.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_RenewAccessToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:53:23.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Request_Login.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Login.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Login.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Login.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Login.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:51:32.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Request_Register.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Register.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Register.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Register.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\UserRequest\\Request_Register.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAswBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:48:38.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DataResponseUser.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataUser\\DataResponseUser.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataUser\\DataResponseUser.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataUser\\DataResponseUser.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataUser\\DataResponseUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:45:32.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IdentityUserService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ClientService\\IdentityUserService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\ClientService\\IdentityUserService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ClientService\\IdentityUserService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\ClientService\\IdentityUserService.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAA6wCQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T06:38:18.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DataResponseBase.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseBase.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseBase.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseBase.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:44:57.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Enumerate.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Enums\\Enumerate.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Enums\\Enumerate.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Enums\\Enumerate.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Enums\\Enumerate.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:21:36.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "DataResponseMessage.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseMessage.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseMessage.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseMessage.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAB1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:30:15.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "DataResponseLoginOTP.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLoginOTP.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLoginOTP.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLoginOTP.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLoginOTP.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:26:38.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DataResponseLogin.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLogin.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLogin.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLogin.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseModels\\DataResponseLogin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:25:35.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Request_Message.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\Request_Message.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\Request_Message.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\RequestModels\\Request_Message.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\RequestModels\\Request_Message.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:24:10.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ResponseObject.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseObject.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\Payloads\\ResponseObject.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\Payloads\\ResponseObject.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\Payloads\\ResponseObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:13:01.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "EmailConfiguration.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Configuration\\EmailConfiguration.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Configuration\\EmailConfiguration.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Configuration\\EmailConfiguration.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Configuration\\EmailConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:10:24.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IIdentityUserService.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ClientService\\IIdentityUserService.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Business\\ClientService\\IIdentityUserService.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Business\\ClientService\\IIdentityUserService.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Business\\ClientService\\IIdentityUserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T06:36:48.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "CorrelationIdMiddleware.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdMiddleware.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdMiddleware.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdMiddleware.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdMiddleware.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAgwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:31:40.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ICorrelationIdProvider.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\ICorrelationIdProvider.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Tracing\\ICorrelationIdProvider.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\ICorrelationIdProvider.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Tracing\\ICorrelationIdProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:30:13.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DefaultCorrelationIdProvider.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\DefaultCorrelationIdProvider.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Tracing\\DefaultCorrelationIdProvider.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\DefaultCorrelationIdProvider.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Tracing\\DefaultCorrelationIdProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:29:44.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CorrelationIdOptions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdOptions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdOptions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdOptions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Tracing\\CorrelationIdOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:29:24.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\appsettings.json",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Presentation\\appsettings.json",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Presentation\\appsettings.json",
+              "RelativeToolTip": "BaseInsightDotNet.Presentation\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-07T07:51:13.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AspNetCoreCorrelationIdProvider.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\AspNetCoreCorrelationIdProvider.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Tracing\\AspNetCoreCorrelationIdProvider.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Tracing\\AspNetCoreCorrelationIdProvider.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Tracing\\AspNetCoreCorrelationIdProvider.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAqwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:32:17.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IdentityDbContextSeeding.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\SeedData\\IdentityDbContextSeeding.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\SeedData\\IdentityDbContextSeeding.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\SeedData\\IdentityDbContextSeeding.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\SeedData\\IdentityDbContextSeeding.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAIBMwCgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T10:05:20.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "DelegationGrantValidator.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Delegation\\DelegationGrantValidator.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.DataAccess\\Delegation\\DelegationGrantValidator.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.DataAccess\\Delegation\\DelegationGrantValidator.cs",
+              "RelativeToolTip": "BaseInsightDotNet.DataAccess\\Delegation\\DelegationGrantValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T10:02:37.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ConfirmEmail.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ConfirmEmail.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Core\\Entities\\ConfirmEmail.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ConfirmEmail.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Core\\Entities\\ConfirmEmail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T09:47:18.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Core\\Entities\\RefreshToken.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\RefreshToken.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Core\\Entities\\RefreshToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T09:42:45.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ApplicationUserRole.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationUserRole.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Core\\Entities\\ApplicationUserRole.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationUserRole.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Core\\Entities\\ApplicationUserRole.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T09:39:32.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ApplicationRole.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationRole.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Core\\Entities\\ApplicationRole.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Core\\Entities\\ApplicationRole.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Core\\Entities\\ApplicationRole.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T09:38:23.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Utilities.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\UtilitiesGlobal\\Utilities.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\UtilitiesGlobal\\Utilities.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\UtilitiesGlobal\\Utilities.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\UtilitiesGlobal\\Utilities.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:57:19.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Constant.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Constants\\Constant.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Constants\\Constant.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Constants\\Constant.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Constants\\Constant.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAuwBQAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:19:37.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\StringExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\StringExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\StringExtensions.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAswJUAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:42:30.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "QueryableExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\QueryableExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\QueryableExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\QueryableExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\QueryableExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:41:36.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "EnumerableExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\EnumerableExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\EnumerableExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\EnumerableExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\EnumerableExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:40:29.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "DictionaryExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\DictionaryExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\DictionaryExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\DictionaryExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\DictionaryExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAI0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:39:51.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "DateTimeExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\DateTimeExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\DateTimeExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\DateTimeExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\DateTimeExtensions.cs",
+              "ViewState": "AQIAALIAAAAAAAAAAAAqwMoAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:38:57.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ConversionExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\ConversionExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\ConversionExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\ConversionExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\ConversionExtensions.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAQwJQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:37:37.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "CollectionExtensions.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\CollectionExtensions.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Extensions\\CollectionExtensions.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Extensions\\CollectionExtensions.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Extensions\\CollectionExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:36:41.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:25:45.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "InvalidException.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\InvalidException.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Exceptions\\InvalidException.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\InvalidException.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Exceptions\\InvalidException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:25:25.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "ExistException.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\ExistException.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Exceptions\\ExistException.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Exceptions\\ExistException.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Exceptions\\ExistException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:24:53.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "BaseEntitySoftDeletetable.cs",
+              "DocumentMoniker": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\BaseEntitySoftDeletetable.cs",
+              "RelativeDocumentMoniker": "BaseInsightDotNet.Commons\\Base\\BaseEntitySoftDeletetable.cs",
+              "ToolTip": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\Base\\BaseEntitySoftDeletetable.cs",
+              "RelativeToolTip": "BaseInsightDotNet.Commons\\Base\\BaseEntitySoftDeletetable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T08:16:07.368Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
