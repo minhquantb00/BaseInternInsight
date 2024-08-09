@@ -20,5 +20,10 @@ namespace BaseInsightDotNet.Presentation.Controllers
         {
             return Ok(await _authService.RegisterUser(request));
         }
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] Request_Login request)
+        {
+            return Ok(await _authService.Login(request));
+        }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BaseInsightDotNet.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4e0b2acd1631ce148ca2ec9f513b248c940d558")]
 [assembly: System.Reflection.AssemblyProductAttribute("BaseInsightDotNet.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BaseInsightDotNet.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -19,5 +19,6 @@ namespace BaseInsightDotNet.Business.InterfaceServices
         Task<ResponseObject<DataResponseLogin>> GetJwtTokenAsync(ApplicationUser user);
         Task<ResponseObject<DataResponseLogin>> LoginUserWithJWTokenAsync(string otp, string userName);
         Task<ResponseObject<DataResponseLogin>> RenewAccessTokenAsync(Request_RenewAccessToken token);
+        Task<ResponseObject<DataResponseLogin>> Login(Request_Login request);
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BaseInsightDotNet.Core.Entities.Media;
 
 namespace BaseInsightDotNet.DataAccess.Data
 {
@@ -20,6 +21,10 @@ namespace BaseInsightDotNet.DataAccess.Data
         }
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<ConfirmEmail> ConfirmEmail { get; set; }
+        public DbSet<MediaFile> MediaFiles { get; set; }
+        public DbSet<MediaFolder> MediaFolders { get; set; }
+        public DbSet<Download> Downloads { get; set; }
+        public DbSet<MediaStorage> MediaStorages { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

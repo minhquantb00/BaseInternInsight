@@ -5,10 +5,12 @@ using BaseInsightDotNet.Business.Payloads.RequestModels.UserRequest;
 using BaseInsightDotNet.Business.Payloads.ResponseModels;
 using BaseInsightDotNet.Business.Payloads.ResponseModels.DataUser;
 using BaseInsightDotNet.Commons.Extensions;
+using BaseInsightDotNet.Commons.UtilitiesGlobal;
 using BaseInsightDotNet.Core.Entities;
 using BaseInsightDotNet.DataAccess.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -30,7 +32,9 @@ namespace BaseInsightDotNet.Business.ImplementServices
         private readonly IConfiguration _configuration;
         private readonly UserConverter _converter;
         private readonly IRepository<RefreshToken> _refreshTokenRepository;
-        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IConfiguration configuration, UserConverter converter, IRepository<RefreshToken> refreshTokenRepository)
+        private readonly IRepository<ApplicationUserRole> _userRoleRepository;
+        private readonly IRepository<ApplicationRole> _roleRepository;
+        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IConfiguration configuration, UserConverter converter, IRepository<RefreshToken> refreshTokenRepository, IRepository<ApplicationUserRole> userRoleRepository, IRepository<ApplicationRole> roleRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,6 +42,8 @@ namespace BaseInsightDotNet.Business.ImplementServices
             _configuration = configuration;
             _converter = converter;
             _refreshTokenRepository = refreshTokenRepository;
+            _userRoleRepository = userRoleRepository;
+            _roleRepository = roleRepository;
         }
 
         public async Task AssignRoleToUserAsync(List<string> roles, ApplicationUser user)
@@ -126,7 +132,109 @@ namespace BaseInsightDotNet.Business.ImplementServices
 
         public async Task<ResponseObject<DataResponseLogin>> GetJwtTokenAsync(ApplicationUser user)
         {
-            throw new NotImplementedException();
+            var permissions = await _userRoleRepository.GetAllAsync(x => x.UserId == user.Id);
+            var roles = await _roleRepository.GetAllAsync();
+
+            var authClaims = new List<Claim>
+    {
+        new Claim("Id", user.Id.ToString()),
+        new Claim("UserName", user.UserName),
+        new Claim("Email", user.Email),
+        new Claim("FullName", user.FullName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+    };
+
+            foreach (var permission in permissions)
+            {
+                foreach (var role in roles)
+                {
+                    if (role.Id == permission.RoleId)
+                    {
+                        authClaims.Add(new Claim("Permission", role.Name));
+                    }
+                }
+            }
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            foreach (var role in userRoles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var jwtToken = GetToken(authClaims);
+            var refreshToken = GenerateRefreshToken();
+            _ = int.TryParse(_configuration["JWT:RefreshTokenValidity"], out int refreshTokenValidity);
+
+            RefreshToken rf = new RefreshToken
+            {
+                UserId = Guid.Parse(user.Id),
+                ExpiryTime = DateTime.UtcNow.AddHours(refreshTokenValidity),
+                Token = refreshToken
+            };
+
+            rf = await _refreshTokenRepository.CreateAsync(rf);
+
+            return new ResponseObject<DataResponseLogin>
+            {
+                Status = StatusCodes.Status200OK,
+                Message = "Token created successfully",
+                Data = new DataResponseLogin
+                {
+                    AccessToken = new JwtSecurityTokenHandler().WriteToken(jwtToken),
+                    RefreshToken = refreshToken
+                }
+            };
+        }
+
+        public async Task<ResponseObject<DataResponseLogin>> Login(Request_Login request)
+        {
+            try
+            {
+                var user = await _userManager.FindByNameAsync(request.UserName);
+                if (user == null)
+                {
+                    return new ResponseObject<DataResponseLogin>
+                    {
+                        Status = StatusCodes.Status404NotFound,
+                        Message = "Tài khoản không chính xác",
+                        Data = null
+                    };
+                }
+
+                var checkPassword = await _userManager.CheckPasswordAsync(user, request.Password);
+                if (!checkPassword)
+                {
+                    return new ResponseObject<DataResponseLogin>
+                    {
+                        Status = StatusCodes.Status400BadRequest,
+                        Message = "Mật khẩu không chính xác",
+                        Data = null
+                    };
+                }
+
+                var jwtTokenResponse = await GetJwtTokenAsync(user);
+
+                return new ResponseObject<DataResponseLogin>
+                {
+                    Status = StatusCodes.Status200OK,
+                    Message = "Đăng nhập thành công",
+                    Data = new DataResponseLogin
+                    {
+                        AccessToken = jwtTokenResponse.Data.AccessToken,
+                        RefreshToken = jwtTokenResponse.Data.RefreshToken,
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseObject<DataResponseLogin>
+                {
+                    Status = StatusCodes.Status500InternalServerError,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+
         }
 
         public async Task<ResponseObject<DataResponseLoginOTP>> GetOtpByLoginAsync(Request_Login loginModel)

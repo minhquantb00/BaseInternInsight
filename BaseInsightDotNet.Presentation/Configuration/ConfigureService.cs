@@ -21,6 +21,8 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IRepository<RefreshToken>, Repository<RefreshToken>>();
             services.AddHttpContextAccessor();
             services.AddScoped<IDbContext, IdentityDbContext>();
+            services.AddScoped<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
+            services.AddScoped<IRepository<ApplicationRole>,  Repository<ApplicationRole>>();
         }
     }
 }

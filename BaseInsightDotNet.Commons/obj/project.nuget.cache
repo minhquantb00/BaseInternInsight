@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "BFLnPo95W8A=",
+  "dgSpecHash": "/Ph9HH4oJAI=",
   "success": true,
   "projectFilePath": "D:\\ProjectCSharp\\BaseInsightDotNet\\BaseInsightDotNet.Commons\\BaseInsightDotNet.Commons.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\magick.net-q16-anycpu\\13.10.0\\magick.net-q16-anycpu.13.10.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\magick.net.core\\13.10.0\\magick.net.core.13.10.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.30\\microsoft.windowsdesktop.app.ref.6.0.30.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.30\\microsoft.netcore.app.ref.6.0.30.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.30\\microsoft.aspnetcore.app.ref.6.0.30.nupkg.sha512"

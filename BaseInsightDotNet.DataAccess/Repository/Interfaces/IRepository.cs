@@ -33,10 +33,12 @@ namespace BaseInsightDotNet.DataAccess.Repository.Interfaces
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
         #endregion
         #region CreateAsync
+        void Add(TEntity entity);
         Task<TEntity> CreateAsync(TEntity entity);
         Task<IEnumerable<TEntity>> CreateAsync(IEnumerable<TEntity> entities);
         #endregion
         #region UpdateAsync
+        void Update(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> UpdateAsync(int id, TEntity entity);
         Task<TEntity> UpdateAsync(long id, TEntity entity);

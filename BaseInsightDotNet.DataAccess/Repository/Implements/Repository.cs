@@ -51,7 +51,16 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
             await _IDbContext.CommitChangesAsync();
             return entity;
         }
+        public virtual void Add(TEntity entity)
+        {
+            DBSet.Add(entity);
 
+            if (this.AutoCommitEnabledInternal)
+            {
+                _context.SaveChanges();
+            }
+            DBSet.Attach(entity).State = EntityState.Detached;
+        }
         public async Task<IEnumerable<TEntity>> CreateAsync(IEnumerable<TEntity> entities)
         {
             DBSet.AddRange(entities);
@@ -178,6 +187,26 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
         }
         #endregion
         #region UpdateAsync
+        private void ChangeStateToModifiedIfApplicable(TEntity entity)
+        {
+            var entry = _context.Entry(entity);
+
+            if (entry.State == EntityState.Detached)
+            {
+                // Entity was detached before or was explicitly constructed.
+                // This unfortunately sets all properties to modified.
+                entry.State = EntityState.Modified;
+            }
+        }
+        public virtual void Update(TEntity entity)
+        {
+            ChangeStateToModifiedIfApplicable(entity);
+
+            if (this.AutoCommitEnabledInternal)
+            {
+                _context.SaveChanges();
+            }
+        }
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;

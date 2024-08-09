@@ -17,3 +17,4 @@ D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Business\obj\Debug\net6.0\B
 D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Business\obj\Debug\net6.0\refint\BaseInsightDotNet.Business.dll
 D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Business\obj\Debug\net6.0\BaseInsightDotNet.Business.pdb
 D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Business\obj\Debug\net6.0\ref\BaseInsightDotNet.Business.dll
+D:\ProjectCSharp\BaseInsightDotNet\BaseInsightDotNet.Business\obj\Debug\net6.0\BaseInsightDotNet.Business.sourcelink.json
