@@ -13,6 +13,7 @@ namespace BaseInsightDotNet.DataAccess.Repository.Interfaces
     public interface IRepository<TEntity>
     {
         #region GetAllAsync
+        Task<IEnumerable<TEntity>> GetAsync(ISpecification<TEntity> specification = null);
         Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> property = null);
         Task<IQueryable<TEntity>> GetAllAsync(List<string> includes, Expression<Func<TEntity, bool>> property = null);
         Task<IQueryable<TEntity>> GetAllAsync(string include, Expression<Func<TEntity, bool>> property = null);

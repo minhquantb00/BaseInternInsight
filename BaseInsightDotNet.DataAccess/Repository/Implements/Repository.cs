@@ -138,7 +138,12 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
             }
         }
         #endregion
-        #region GetAllAsync
+        #region 
+        public async Task<IEnumerable<TEntity>> GetAsync(ISpecification<TEntity> specification = null)
+        {
+            return await ApplySpecification(specification)
+                .ToListAsync();
+        }
         public async Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> property = null)
         {
             IQueryable<TEntity> query = property != null ? DBSet.Where(property) : DBSet;
@@ -276,5 +281,10 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
 
 
         #endregion
+
+        private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> spec)
+        {
+            return SpecificationEvaluator<TEntity>.GetQuery(DBSet.AsNoTracking(), spec);
+        }
     }
 }

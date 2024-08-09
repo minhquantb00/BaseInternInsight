@@ -19,15 +19,17 @@ namespace BaseInsightDotNet.Business.ImplementServices
     public partial class MediaService : IMediaService
     {
         private readonly IMediaTypeResolver _mediaTypeResolver;
+        private readonly ISpecificationFactory _specificationFactory; 
         private readonly IImageProcessor _imageProcessor;
         private readonly IRepository<MediaFile> _mediaFileRepository;
         private readonly IRepository<MediaFolder> _mediaFolderRepository;
-        public MediaService(IMediaTypeResolver mediaTypeResolver, IImageProcessor imageProcessor, IRepository<MediaFile> mediaFileRepository, IRepository<MediaFolder> mediaFolderRepository)
+        public MediaService(IMediaTypeResolver mediaTypeResolver, IImageProcessor imageProcessor, IRepository<MediaFile> mediaFileRepository, IRepository<MediaFolder> mediaFolderRepository, ISpecificationFactory specificationFactory)
         {
             _mediaTypeResolver = mediaTypeResolver;
             _imageProcessor = imageProcessor;
             _mediaFileRepository = mediaFileRepository;
             _mediaFolderRepository = mediaFolderRepository;
+            _specificationFactory = specificationFactory;
         }
 
         #region Read
@@ -310,23 +312,23 @@ namespace BaseInsightDotNet.Business.ImplementServices
             return query;
         }
 
-        //public async Task<MediaFolder> GetMediaFolderById(Guid id, string owner = null)
-        //{
-        //    var specification = _specificationFactory.Create<MediaFolder>();
-        //    specification = specification
-        //        .And(x => x.Id == id && !x.Deleted);
-        //    specification.AddInclude(x => x.Parent);
-        //    specification.AddInclude(x => x.Children);
+        public async Task<MediaFolder> GetMediaFolderById(Guid id, string owner = null)
+        {
+            var specification = _specificationFactory.Create<MediaFolder>();
+            specification = specification
+                .And(x => x.Id == id && !x.Deleted);
+            specification.AddInclude(x => x.Parent);
+            specification.AddInclude(x => x.Children);
 
-        //    var folder = (await _unitOfWork.Repository<MediaFolder, Guid>().GetAsync(specification))
-        //        .FirstOrDefault();
-        //    if (!owner.IsNullOrEmpty() && folder.Owner != null && folder.Owner != owner)
-        //    {
-        //        return null;
-        //    }
-        //    folder.Files = _unitOfWork.Repository<MediaFile, Guid>().Query.Where(x => x.FolderId == folder.Id && !x.Deleted && (x.Owner == owner || x.Owner == null));
-        //    return folder;
-        //}
+            var folder = (await _mediaFolderRepository.GetAsync(specification))
+                .FirstOrDefault();
+            if (!string.IsNullOrEmpty(owner) && folder.Owner != null && folder.Owner != owner)
+            {
+                return null;
+            }
+            folder.Files =await _mediaFileRepository.GetAllAsync(x => x.FolderId == folder.Id && !x.Deleted && (x.Owner == owner || x.Owner == null));
+            return folder;
+        }
         public bool FolderExists(string path)
         {
             throw new NotImplementedException();
@@ -355,34 +357,34 @@ namespace BaseInsightDotNet.Business.ImplementServices
             throw new NotImplementedException();
         }
 
-        //public async Task DeleteFolder(Guid folderId, bool permanent = false)
-        //{
-        //    var specification = _specificationFactory.Create<MediaFolder>();
-        //    specification = specification
-        //        .And(x => x.Id == folderId);
-        //    specification.AddInclude(x => x.Files);
-        //    specification.AddInclude(x => x.Children);
+        public async Task DeleteFolder(Guid folderId, bool permanent = false)
+        {
+            var specification = _specificationFactory.Create<MediaFolder>();
+            specification = specification
+                .And(x => x.Id == folderId);
+            specification.AddInclude(x => x.Files);
+            specification.AddInclude(x => x.Children);
 
-        //    var folder = (await _unitOfWork.Repository<MediaFolder, Guid>().GetAsync(specification))
-        //        .FirstOrDefault();
-        //    foreach (var folderChild in folder.Children)
-        //    {
-        //        await DeleteFolder(folderChild.Id, permanent);
-        //    }
-        //    foreach (var file in folder.Files)
-        //    {
-        //        await DeleteFile(file.Id, permanent);
-        //    }
-        //    if (permanent)
-        //    {
-        //        folder.Deleted = true;
-        //        _unitOfWork.Repository<MediaFolder, Guid>().Update(folder);
-        //    }
-        //    else
-        //    {
-        //        _unitOfWork.Repository<MediaFolder, Guid>().Delete(folder);
-        //    }
-        //}
+            var folder = (await _mediaFolderRepository.GetAsync(specification))
+                .FirstOrDefault();
+            foreach (var folderChild in folder.Children)
+            {
+                await DeleteFolder(folderChild.Id, permanent);
+            }
+            foreach (var file in folder.Files)
+            {
+                await DeleteFile(file.Id, permanent);
+            }
+            if (permanent)
+            {
+                folder.Deleted = true;
+                _mediaFolderRepository.Update(folder);
+            }
+            else
+            {
+                _mediaFolderRepository.Delete(folder);
+            }
+        }
 
         #endregion
     }

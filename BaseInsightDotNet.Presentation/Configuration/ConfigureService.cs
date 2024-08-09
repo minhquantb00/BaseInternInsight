@@ -2,6 +2,7 @@
 using BaseInsightDotNet.Business.InterfaceServices;
 using BaseInsightDotNet.Business.Payloads.Converters;
 using BaseInsightDotNet.Core.Entities;
+using BaseInsightDotNet.Core.Entities.Media;
 using BaseInsightDotNet.DataAccess.Data;
 using BaseInsightDotNet.DataAccess.Repository.Implements;
 using BaseInsightDotNet.DataAccess.Repository.Interfaces;
@@ -23,6 +24,9 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IDbContext, IdentityDbContext>();
             services.AddScoped<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
             services.AddScoped<IRepository<ApplicationRole>,  Repository<ApplicationRole>>();
+            services.AddScoped<IRepository<MediaFile>, Repository<MediaFile>>();
+            services.AddScoped<IRepository<MediaFolder>, Repository<MediaFolder>>();
+            services.AddScoped<IMediaService,  MediaService>();
         }
     }
 }

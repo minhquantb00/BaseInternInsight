@@ -22,11 +22,11 @@ namespace BaseInsightDotNet.Business.InterfaceServices
 
         public IQueryable<MediaFolder> GetMediaFolders(string keywords, Guid? parentFolderId = null, string owner = null);
 
-        //public Task<MediaFolder> GetMediaFolderById(Guid id, string owner = null);
+        public Task<MediaFolder> GetMediaFolderById(Guid id, string owner = null);
         bool FolderExists(string path);
         public Task<MediaFolder> CreateFolder(MediaFolder folder, string account);
         public MediaFolder MoveFolder(string path, string destinationPath);
         public MediaFolder CopyFolder(string path, string destinationPath);
-        //public Task DeleteFolder(Guid folderId, bool permanent = false);
+        public Task DeleteFolder(Guid folderId, bool permanent = false);
     }
 }
