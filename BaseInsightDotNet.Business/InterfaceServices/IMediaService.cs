@@ -1,4 +1,7 @@
-﻿using BaseInsightDotNet.Core.Entities.Media;
+﻿using BaseInsightDotNet.Business.Payloads.RequestModels.MediaRequest;
+using BaseInsightDotNet.Business.Payloads.ResponseModels.DataMedia;
+using BaseInsightDotNet.Core.Entities.Media;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +12,9 @@ namespace BaseInsightDotNet.Business.InterfaceServices
 {
     public partial interface IMediaService
     {
+        Task<DataResponseDownloadFile> HandleDownloadFile(Request_DownloadFile request);
+        Task<DataResponseUploadPhoto> HandleUploadPhoto(Request_UploadPhoto request);
+
         bool FileExists(Guid folderId, string name);
         MediaFile GetFileById(Guid id);
         IList<MediaFile> GetFilesByIds(Guid[] ids);

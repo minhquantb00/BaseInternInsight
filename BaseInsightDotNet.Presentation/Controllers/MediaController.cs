@@ -1,4 +1,6 @@
 ﻿using BaseInsightDotNet.Business.InterfaceServices;
+using BaseInsightDotNet.Business.Payloads.RequestModels.MediaRequest;
+using BaseInsightDotNet.Business.Payloads.ResponseModels.DataMedia;
 using BaseInsightDotNet.Commons.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,55 +22,76 @@ namespace BaseInsightDotNet.Presentation.Controllers
 
         [DisableRequestSizeLimit]
         [HttpPost("admissions/uploadphoto")]
-        public async Task<ActionResult> UploadPhoto()
+        public async Task<ActionResult> UploadPhoto([FromForm] IEnumerable<IFormFile> files)
         {
-            string folderName = "MediaFiles\\Admissions\\FilesUpload\\Photos";
-            string webRootPath = _hostingEnvironment.WebRootPath;
-            string newPath = Path.Combine(webRootPath, folderName);
-            if (!Directory.Exists(newPath))
+            // Đường dẫn tương đối (liên quan đến thư mục gốc của ứng dụng)
+            string relativePath = Path.Combine(Directory.GetCurrentDirectory(), "MediaFiles", "Admissions", "FilesUpload", "Photos");
+
+            if (!Directory.Exists(relativePath))
             {
-                Directory.CreateDirectory(newPath);
+                Directory.CreateDirectory(relativePath);
             }
+
             try
             {
-                var results = new List<UploadPhotoUseCaseOutput>();
-                foreach (var file in Request.Form.Files)
+                var results = new List<DataResponseUploadPhoto>();
+                foreach (var file in files)
                 {
-                    using (var stream = file.OpenReadStream())
+                    try
                     {
-                        var useCase = _serviceProvider
-                            .GetService<IUseCase<UploadPhotoUseCaseInput, UploadPhotoUseCaseOutput>>()
-                            .NotNull();
-                        var uploadPhotoUseCaseInput = new UploadPhotoUseCaseInput
+                        if (file.Length <= 0)
                         {
-                            FileName = file.FileName,
-                            FileStream = stream,
-                            SavePath = newPath
-                        };
-                        var mediaFile = await useCase.ExecuteAsync(uploadPhotoUseCaseInput);
-                        results.Add(mediaFile);
+                            return BadRequest("Empty file uploaded.");
+                        }
+
+                        // Kiểm tra loại file được phép
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                        var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
+
+                        if (!allowedExtensions.Contains(fileExtension))
+                        {
+                            return BadRequest("Invalid file type.");
+                        }
+
+                        using (var stream = file.OpenReadStream())
+                        {
+                            var request = new Request_UploadPhoto
+                            {
+                                FileName = file.FileName,
+                                FileStream = stream,
+                                SavePath = relativePath
+                            };
+                            var mediaFile = await _mediaService.HandleUploadPhoto(request);
+                            results.Add(mediaFile);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Xử lý lỗi đối với từng file
+                        return BadRequest($"Error uploading file {file.FileName}: {ex.Message}");
                     }
                 }
                 return Ok(results);
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest($"An error occurred: {ex.Message}");
             }
         }
+
+
+
+
 
         [HttpGet]
         [Route("admissions/{fileId}/download")]
         public async Task<IActionResult> DownloadAsync(Guid fileId)
         {
-            var useCase = _serviceProvider
-                .GetService<IUseCase<DownloadFileUseCaseInput, DownloadFileUseCaseOutput>>()
-                .NotNull();
-            var useCaseInput = new DownloadFileUseCaseInput
+            var useCaseInput = new Request_DownloadFile
             {
                 Id = fileId
             };
-            var mediaFile = await useCase.ExecuteAsync(useCaseInput);
+            var mediaFile = await _mediaService.HandleDownloadFile(useCaseInput);
             if (mediaFile == null || !System.IO.File.Exists(mediaFile.Path))
                 return BadRequest("File not found!");
 
@@ -81,7 +104,6 @@ namespace BaseInsightDotNet.Presentation.Controllers
             memory.Position = 0;
             return File(memory, mediaFile.MimeType, mediaFile.Name);
         }
-        [Authorize(Policy = "ApiScope")]
         [HttpGet]
         [Route("admissions/test")]
         public async Task<IActionResult> Test()

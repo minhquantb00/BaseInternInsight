@@ -1,6 +1,8 @@
-﻿using BaseInsightDotNet.Business.ImplementServices;
+﻿using BaseInsightDotNet.Business.Handle.Media;
+using BaseInsightDotNet.Business.ImplementServices;
 using BaseInsightDotNet.Business.InterfaceServices;
 using BaseInsightDotNet.Business.Payloads.Converters;
+using BaseInsightDotNet.Commons.Media;
 using BaseInsightDotNet.Core.Entities;
 using BaseInsightDotNet.Core.Entities.Media;
 using BaseInsightDotNet.DataAccess.Data;
@@ -27,6 +29,9 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IRepository<MediaFile>, Repository<MediaFile>>();
             services.AddScoped<IRepository<MediaFolder>, Repository<MediaFolder>>();
             services.AddScoped<IMediaService,  MediaService>();
+            services.AddScoped<IMediaTypeResolver, MediaTypeResolver>();
+            services.AddScoped<ISpecificationFactory, SpecificationFactory>();
+            services.AddScoped<IImageProcessor, DefaultImageProcessor>();
         }
     }
 }

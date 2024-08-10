@@ -1,12 +1,17 @@
 ﻿using BaseInsightDotNet.Business.Guard;
 using BaseInsightDotNet.Business.Handle.Media;
 using BaseInsightDotNet.Business.InterfaceServices;
+using BaseInsightDotNet.Business.Payloads.RequestModels.MediaRequest;
+using BaseInsightDotNet.Business.Payloads.ResponseModels.DataMedia;
 using BaseInsightDotNet.Commons.Extensions;
 using BaseInsightDotNet.Commons.Media;
 using BaseInsightDotNet.Core.Entities.Media;
 using BaseInsightDotNet.DataAccess.Repository.Interfaces;
 using Duende.IdentityServer.Extensions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,18 +24,57 @@ namespace BaseInsightDotNet.Business.ImplementServices
     public partial class MediaService : IMediaService
     {
         private readonly IMediaTypeResolver _mediaTypeResolver;
-        private readonly ISpecificationFactory _specificationFactory; 
+        private readonly ISpecificationFactory _specificationFactory;
         private readonly IImageProcessor _imageProcessor;
         private readonly IRepository<MediaFile> _mediaFileRepository;
         private readonly IRepository<MediaFolder> _mediaFolderRepository;
-        public MediaService(IMediaTypeResolver mediaTypeResolver, IImageProcessor imageProcessor, IRepository<MediaFile> mediaFileRepository, IRepository<MediaFolder> mediaFolderRepository, ISpecificationFactory specificationFactory)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private IWebHostEnvironment _hostingEnvironment;
+
+        public MediaService(IWebHostEnvironment hostingEnvironment, IMediaTypeResolver mediaTypeResolver, IImageProcessor imageProcessor, IRepository<MediaFile> mediaFileRepository, IRepository<MediaFolder> mediaFolderRepository, ISpecificationFactory specificationFactory, IHttpContextAccessor httpContextAccessor)
         {
             _mediaTypeResolver = mediaTypeResolver;
             _imageProcessor = imageProcessor;
             _mediaFileRepository = mediaFileRepository;
             _mediaFolderRepository = mediaFolderRepository;
             _specificationFactory = specificationFactory;
+            _httpContextAccessor = httpContextAccessor;
+            _hostingEnvironment = hostingEnvironment;
         }
+
+        #region Upload and download file
+        public async Task<DataResponseDownloadFile> HandleDownloadFile(Request_DownloadFile request)
+        {
+            var ownerId = _httpContextAccessor.HttpContext?.User?.FindFirst("Id")?.Value;
+            var file = GetFileById(request.Id);
+
+            if (file == null) return null;
+
+            return new DataResponseDownloadFile
+            {
+                Extension = file.Extension,
+                FileKey = file.FileKey,
+                Id = file.Id,
+                MediaType = file.MediaType,
+                MimeType = file.MimeType,
+                Name = file.Name,
+                Path = file.Path,
+            };
+        }
+        public async Task<DataResponseUploadPhoto> HandleUploadPhoto(Request_UploadPhoto request)
+        {
+            var ownerId = _httpContextAccessor.HttpContext?.User?.FindFirst("Id")?.Value;
+            var defaultFolder = GetMediaFolders("FilesUpload").FirstOrDefault();
+            var mediaFile = await SaveFileAsync(defaultFolder.Id, request.FileName, request.SavePath, request.FileStream, true, ownerId, false);
+
+            return new DataResponseUploadPhoto
+            {
+                FileKey = mediaFile.FileKey,
+                Id=mediaFile.Id,
+                Name = mediaFile.Name,
+            };
+        }
+        #endregion
 
         #region Read
 
@@ -185,7 +229,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
             file.Owner = owner;
             if (file.Id == null || file.Id == new Guid())
             {
-                file =  await _mediaFileRepository.CreateAsync(file);
+                file = await _mediaFileRepository.CreateAsync(file);
             }
             else
             {
@@ -215,7 +259,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
 
         public async Task DeleteFile(Guid fileId, bool permanent)
         {
-            var file = await _mediaFileRepository.GetAsync(x => x.Id ==  fileId);
+            var file = await _mediaFileRepository.GetAsync(x => x.Id == fileId);
             if (!permanent)
             {
                 file.Deleted = true;
@@ -326,7 +370,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
             {
                 return null;
             }
-            folder.Files =await _mediaFileRepository.GetAllAsync(x => x.FolderId == folder.Id && !x.Deleted && (x.Owner == owner || x.Owner == null));
+            folder.Files = await _mediaFileRepository.GetAllAsync(x => x.FolderId == folder.Id && !x.Deleted && (x.Owner == owner || x.Owner == null));
             return folder;
         }
         public bool FolderExists(string path)
