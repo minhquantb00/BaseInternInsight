@@ -2,6 +2,7 @@
 using BaseInsightDotNet.Business.Payloads.RequestModels.MediaRequest;
 using BaseInsightDotNet.Business.Payloads.ResponseModels.DataMedia;
 using BaseInsightDotNet.Commons.Constants;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,7 @@ namespace BaseInsightDotNet.Presentation.Controllers
 
         [DisableRequestSizeLimit]
         [HttpPost("admissions/uploadphoto")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> UploadPhoto([FromForm] IEnumerable<IFormFile> files)
         {
             // Đường dẫn tương đối (liên quan đến thư mục gốc của ứng dụng)
@@ -67,7 +69,6 @@ namespace BaseInsightDotNet.Presentation.Controllers
                     }
                     catch (Exception ex)
                     {
-                        // Xử lý lỗi đối với từng file
                         return BadRequest($"Error uploading file {file.FileName}: {ex.Message}");
                     }
                 }
