@@ -56,10 +56,10 @@ namespace BaseInsightDotNet.DataAccess.Data
         }
         //private static void SeedRoles(ModelBuilder builder)
         //{
-        //    builder.Entity<IdentityRole>().HasData
+        //    builder.Entity<ApplicationRole>().HasData
         //        (
-        //            new IdentityRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
-        //            new IdentityRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
+        //            new ApplicationRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
+        //            new ApplicationRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
         //        );
         //}
 
@@ -67,7 +67,7 @@ namespace BaseInsightDotNet.DataAccess.Data
         //{
         //    modelBuilder.Entity<MediaFolder>().HasData
         //        (
-        //            new MediaFolder() { Id = Guid.NewGuid(), Name = "Public", IsPublic = true, CanDetectTracks = true, Deleted = false, FilesCount = 0},
+        //            new MediaFolder() { Id = Guid.NewGuid(), Name = "Public", IsPublic = true, CanDetectTracks = true, Deleted = false, FilesCount = 0 },
         //            new MediaFolder() { Id = Guid.NewGuid(), Name = "FilesUpload", IsPublic = true, CanDetectTracks = false, Deleted = false, FilesCount = 0 }
         //        );
         //}

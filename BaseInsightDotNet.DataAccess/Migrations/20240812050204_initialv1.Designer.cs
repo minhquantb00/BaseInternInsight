@@ -4,6 +4,7 @@ using BaseInsightDotNet.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    partial class IdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240812050204_initialv1")]
+    partial class initialv1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,13 +161,15 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("IsConfirm")
                         .HasColumnType("bit");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("ConfirmEmail");
                 });
@@ -336,6 +340,36 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("MediaFolders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("7b0b45ab-9d4c-44b7-bbb5-3dd6cee1ca63"),
+                            CanDetectTracks = true,
+                            Deleted = false,
+                            FilesCount = 0,
+                            IsPrivate = "",
+                            IsProtected = "",
+                            IsPublic = true,
+                            Metadata = "",
+                            Name = "Public",
+                            Owner = "",
+                            Slug = ""
+                        },
+                        new
+                        {
+                            Id = new Guid("0749047a-3311-42d5-a74a-c8efaa3aaf76"),
+                            CanDetectTracks = false,
+                            Deleted = false,
+                            FilesCount = 0,
+                            IsPrivate = "",
+                            IsProtected = "",
+                            IsPublic = true,
+                            Metadata = "",
+                            Name = "FilesUpload",
+                            Owner = "",
+                            Slug = ""
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaStorage", b =>
@@ -369,15 +403,52 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("RefreshToken");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IdentityRole");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b7033375-1c6b-43a8-8d63-a7cecb67a88d",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "e706a233-ca3a-47da-b447-292f913fb227",
+                            ConcurrencyStamp = "2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -494,9 +565,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
 
                     b.Navigation("User");
                 });
@@ -538,9 +607,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany("RefreshTokens")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
 
                     b.Navigation("User");
                 });

@@ -167,7 +167,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
 
             RefreshToken rf = new RefreshToken
             {
-                UserId = Guid.Parse(user.Id),
+                UserId = user.Id,
                 ExpiryTime = DateTime.UtcNow.AddHours(refreshTokenValidity),
                 Token = refreshToken
             };
@@ -318,7 +318,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
         {
             var principal = GetClaimsPrincipal(token.AccessToken);
             var user = await _userManager.FindByNameAsync(principal.Identity.Name);
-            var refreshToken = await _refreshTokenRepository.GetAsync(record => record.UserId == Guid.Parse(user.Id));
+            var refreshToken = await _refreshTokenRepository.GetAsync(record => record.UserId.Equals(user.Id));
             if (refreshToken != null && refreshToken.ExpiryTime <= DateTime.Now)
             {
                 return new ResponseObject<DataResponseLogin>

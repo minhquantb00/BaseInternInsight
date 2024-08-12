@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20240809093002_initialver4.0")]
-    partial class initialver40
+    [Migration("20240812053145_initialv4")]
+    partial class initialv4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,22 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "31ec98e8-0b7b-46a6-841f-9ba606792548",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "0b51e34c-87ea-4264-876a-ae821892d3a4",
+                            ConcurrencyStamp = "2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUser", b =>
@@ -161,15 +177,13 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("IsConfirm")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ConfirmEmail");
                 });
@@ -225,14 +239,12 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Alt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Extension")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("FileKey")
@@ -244,53 +256,43 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<int?>("Height")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Hidden")
+                    b.Property<bool?>("Hidden")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsTransient")
+                    b.Property<bool?>("IsTransient")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("MediaStorageId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("MediaStorageId1")
+                    b.Property<Guid?>("MediaStorageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MediaType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Metadata")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MimeType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Owner")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Path")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PixelSize")
                         .HasColumnType("int");
 
-                    b.Property<int>("Size")
+                    b.Property<int?>("Size")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Version")
+                    b.Property<int?>("Version")
                         .HasColumnType("int");
 
                     b.Property<int?>("Width")
@@ -300,7 +302,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.HasIndex("FolderId");
 
-                    b.HasIndex("MediaStorageId1");
+                    b.HasIndex("MediaStorageId");
 
                     b.ToTable("MediaFiles");
                 });
@@ -356,7 +358,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e3b055d4-4739-4a50-b039-dcc31a81e13e"),
+                            Id = new Guid("d9fcd73e-e8c8-4737-9165-b18f1eeacdab"),
                             CanDetectTracks = true,
                             Deleted = false,
                             FilesCount = 0,
@@ -370,7 +372,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("48d5d2f9-6f02-42d6-b64c-4efb794da53f"),
+                            Id = new Guid("8e10bcd8-0af0-4667-89fe-5a4839b12a28"),
                             CanDetectTracks = false,
                             Deleted = false,
                             FilesCount = 0,
@@ -415,15 +417,13 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("RefreshToken");
                 });
@@ -542,7 +542,9 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -564,9 +566,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.HasOne("BaseInsightDotNet.Core.Entities.Media.MediaStorage", "MediaStorage")
                         .WithMany()
-                        .HasForeignKey("MediaStorageId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MediaStorageId");
 
                     b.Navigation("Folder");
 
@@ -586,7 +586,9 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany("RefreshTokens")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

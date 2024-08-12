@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20240808135910_initialver2.0")]
-    partial class initialver20
+    [Migration("20240812053309_initialv5")]
+    partial class initialv5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,17 +161,198 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("IsConfirm")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ConfirmEmail");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.Download", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Changelog")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DownloadGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DownloadUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("EntityName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileVersion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsTransient")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("MediaFileId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("UseDownloadUrl")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MediaFileId");
+
+                    b.ToTable("Downloads");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Alt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("FileKey")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("FolderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Hidden")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsTransient")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("MediaStorageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MediaType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Metadata")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MimeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PixelSize")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Size")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Version")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Width")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FolderId");
+
+                    b.HasIndex("MediaStorageId");
+
+                    b.ToTable("MediaFiles");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFolder", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("CanDetectTracks")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("FilesCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IsPrivate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IsProtected")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Metadata")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ParentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("MediaFolders");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaStorage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MediaStorages");
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.RefreshToken", b =>
@@ -190,52 +371,15 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("RefreshToken");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("IdentityRole");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "dce1f377-73c5-41e8-97ce-e08439cc377e",
-                            ConcurrencyStamp = "1",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
-                        },
-                        new
-                        {
-                            Id = "2a0d772d-fbdd-4497-bea8-e988dc31d57b",
-                            ConcurrencyStamp = "2",
-                            Name = "User",
-                            NormalizedName = "User"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -352,16 +496,53 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.Download", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Media.MediaFile", "MediaFile")
+                        .WithMany()
+                        .HasForeignKey("MediaFileId");
+
+                    b.Navigation("MediaFile");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFile", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Media.MediaFolder", "Folder")
+                        .WithMany("Files")
+                        .HasForeignKey("FolderId");
+
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Media.MediaStorage", "MediaStorage")
+                        .WithMany()
+                        .HasForeignKey("MediaStorageId");
+
+                    b.Navigation("Folder");
+
+                    b.Navigation("MediaStorage");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFolder", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Media.MediaFolder", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.RefreshToken", b =>
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
                         .WithMany("RefreshTokens")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -412,6 +593,13 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Navigation("RefreshTokens");
 
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFolder", b =>
+                {
+                    b.Navigation("Children");
+
+                    b.Navigation("Files");
                 });
 #pragma warning restore 612, 618
         }

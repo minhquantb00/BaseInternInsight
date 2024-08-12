@@ -10,7 +10,7 @@ namespace BaseInsightDotNet.Core.Entities
     public class ConfirmEmail : BaseEntity
     {
         public string ConfirmCode { get; set; }
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
         public virtual ApplicationUser? User { get; set; }
         public DateTime CreateTime { get; set; }
         public bool IsConfirm {  get; set; }
