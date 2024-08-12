@@ -24,5 +24,16 @@ namespace BaseInsightDotNet.Commons.Enums
             Male = 1,
             Female = 2
         }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public enum ContractStatus
+        {
+            HetHan = 0,
+            BanNhap = 1,
+            DaHuy = 2,
+            DaGiaHan = 3,
+            DaChamDut = 4,
+            DangCho = 5
+        }
     }
 }

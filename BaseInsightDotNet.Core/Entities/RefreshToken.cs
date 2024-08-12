@@ -1,12 +1,14 @@
 ﻿using BaseInsightDotNet.Commons.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BaseInsightDotNet.Core.Entities
 {
+    [Table("RefreshToken_tbl")]
     public class RefreshToken : BaseEntity
     {
         public string Token { get; set; }

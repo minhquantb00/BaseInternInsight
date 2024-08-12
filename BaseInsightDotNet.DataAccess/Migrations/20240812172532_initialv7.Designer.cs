@@ -4,6 +4,7 @@ using BaseInsightDotNet.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    partial class IdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240812172532_initialv7")]
+    partial class initialv7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,19 +44,19 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1ad800bd-2c5d-4e28-a30c-13b8853b2032"),
+                            Id = new Guid("334d1c68-ece1-4a5a-b356-4661299716a8"),
                             AllowanceName = "Phụ cấp ăn trưa",
                             Amount = 50.0
                         },
                         new
                         {
-                            Id = new Guid("57b38617-b24b-4a93-ba00-f05fa4f5a3e9"),
+                            Id = new Guid("10ed7a62-fc50-4e96-a2ed-9ed86c2a5b41"),
                             AllowanceName = "Phụ cấp đi lại",
                             Amount = 100.0
                         },
                         new
                         {
-                            Id = new Guid("d34f6c9c-3cf6-4f37-88af-4ff293400016"),
+                            Id = new Guid("40e30a47-4ac1-4f0a-9b84-5295e9b187ee"),
                             AllowanceName = "Phụ cấp ăn tối",
                             Amount = 60.0
                         });
@@ -106,7 +108,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DepartmentId")
+                    b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -146,7 +148,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("PositionId")
+                    b.Property<Guid>("PositionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SecurityStamp")
@@ -317,19 +319,19 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7ced46ed-e1a2-425b-a437-b04d19b22254"),
+                            Id = new Guid("7606a87e-8332-40a1-aec8-f48d381c5d57"),
                             Description = "Hợp đồng cộng tác viên",
                             Name = "CTV"
                         },
                         new
                         {
-                            Id = new Guid("22e60153-6b78-463b-bae5-82a20fe71ad5"),
+                            Id = new Guid("dbefcdb5-3dc8-4f48-8a1b-56962052faff"),
                             Description = "Hợp đồng thử việc",
                             Name = "Thử việc"
                         },
                         new
                         {
-                            Id = new Guid("e50e8cf5-5d9c-4f6c-b27b-e2676fc63f40"),
+                            Id = new Guid("c6e05e3c-27cc-4067-8d04-8674fb43da67"),
                             Description = "Hợp đồng chính thức",
                             Name = "Chính thức"
                         });
@@ -369,8 +371,8 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("97dbd062-9de9-4ede-a3c1-7b80c4c3e253"),
-                            CreateTime = new DateTime(2024, 8, 13, 0, 35, 29, 606, DateTimeKind.Local).AddTicks(2511),
+                            Id = new Guid("74d87357-18b3-44cd-ab1e-9262cb587f14"),
+                            CreateTime = new DateTime(2024, 8, 13, 0, 25, 32, 297, DateTimeKind.Local).AddTicks(4285),
                             ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9",
                             Name = "Dev",
                             NumberOfMember = 0,
@@ -610,7 +612,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3f7fb70b-5dac-4e5f-bc52-6145d51233dd"),
+                            Id = new Guid("339a5077-a38e-417b-9370-973f5d967f37"),
                             Name = "Thuế thu nhập",
                             SalaryCoefficient = 0.1m
                         });
@@ -738,11 +740,15 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.Department", "Department")
                         .WithMany("Users")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BaseInsightDotNet.Core.Entities.Position", "Position")
                         .WithMany("Users")
-                        .HasForeignKey("PositionId");
+                        .HasForeignKey("PositionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
 

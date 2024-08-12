@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace BaseInsightDotNet.Core.Entities
 {
-    [Table("ConfirmEmail_tbl")]
-    public class ConfirmEmail : BaseEntity
+    [Table("Notification_tbl")]
+    public class Notification : BaseEntity
     {
-        public string ConfirmCode { get; set; }
         public string UserId { get; set; }
-        public virtual ApplicationUser? User { get; set; }
+        public virtual ApplicationUser? User { get; set; }  
+        public string? Content { get; set; }
+        public string? Image {  get; set; }
         public DateTime CreateTime { get; set; }
-        public bool IsConfirm {  get; set; }
+        public bool IsSeen { get; set; } = false;
     }
 }
