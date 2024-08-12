@@ -38,26 +38,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Allowance_tbl");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("1ad800bd-2c5d-4e28-a30c-13b8853b2032"),
-                            AllowanceName = "Phụ cấp ăn trưa",
-                            Amount = 50.0
-                        },
-                        new
-                        {
-                            Id = new Guid("57b38617-b24b-4a93-ba00-f05fa4f5a3e9"),
-                            AllowanceName = "Phụ cấp đi lại",
-                            Amount = 100.0
-                        },
-                        new
-                        {
-                            Id = new Guid("d34f6c9c-3cf6-4f37-88af-4ff293400016"),
-                            AllowanceName = "Phụ cấp ăn tối",
-                            Amount = 60.0
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationRole", b =>
@@ -313,26 +293,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ContractType_tbl");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7ced46ed-e1a2-425b-a437-b04d19b22254"),
-                            Description = "Hợp đồng cộng tác viên",
-                            Name = "CTV"
-                        },
-                        new
-                        {
-                            Id = new Guid("22e60153-6b78-463b-bae5-82a20fe71ad5"),
-                            Description = "Hợp đồng thử việc",
-                            Name = "Thử việc"
-                        },
-                        new
-                        {
-                            Id = new Guid("e50e8cf5-5d9c-4f6c-b27b-e2676fc63f40"),
-                            Description = "Hợp đồng chính thức",
-                            Name = "Chính thức"
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Department", b =>
@@ -365,17 +325,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Department_tbl");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("97dbd062-9de9-4ede-a3c1-7b80c4c3e253"),
-                            CreateTime = new DateTime(2024, 8, 13, 0, 35, 29, 606, DateTimeKind.Local).AddTicks(2511),
-                            ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9",
-                            Name = "Dev",
-                            NumberOfMember = 0,
-                            Slogan = "Hế lô"
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.Download", b =>
@@ -606,14 +555,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Position_tbl");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("3f7fb70b-5dac-4e5f-bc52-6145d51233dd"),
-                            Name = "Thuế thu nhập",
-                            SalaryCoefficient = 0.1m
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.RefreshToken", b =>

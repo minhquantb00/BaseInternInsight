@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20240812053145_initialv4")]
-    partial class initialv4
+    [Migration("20240812174100_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,44 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Allowance", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AllowanceName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Allowance_tbl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2279741c-d144-4b82-b9fd-919621bc64f0"),
+                            AllowanceName = "Phụ cấp ăn trưa",
+                            Amount = 50.0
+                        },
+                        new
+                        {
+                            Id = new Guid("8429963c-1e95-42b3-a366-7b17219c3eaa"),
+                            AllowanceName = "Phụ cấp đi lại",
+                            Amount = 100.0
+                        },
+                        new
+                        {
+                            Id = new Guid("2aa71727-af41-4435-a6b6-cfee77a44ddd"),
+                            AllowanceName = "Phụ cấp ăn tối",
+                            Amount = 60.0
+                        });
+                });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationRole", b =>
                 {
@@ -49,22 +87,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "31ec98e8-0b7b-46a6-841f-9ba606792548",
-                            ConcurrencyStamp = "1",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
-                        },
-                        new
-                        {
-                            Id = "0b51e34c-87ea-4264-876a-ae821892d3a4",
-                            ConcurrencyStamp = "2",
-                            Name = "User",
-                            NormalizedName = "User"
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUser", b =>
@@ -85,6 +107,9 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -123,6 +148,9 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("PositionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -135,6 +163,8 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -142,6 +172,8 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("PositionId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -185,7 +217,167 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ConfirmEmail");
+                    b.ToTable("ConfirmEmail_tbl");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Contract", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("BaseSalary")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContractStatus")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ContractTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsSubsidized")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("SalaryBeforeTax")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SignatureA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignatureB")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("TaxPercentage")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContractTypeId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Contract_tbl");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ContractAllowance", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AllowanceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ContractId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AllowanceId");
+
+                    b.HasIndex("ContractId");
+
+                    b.ToTable("ContractAllowance_tbl");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ContractType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContractType_tbl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("09baf487-b531-400f-99da-2ed9f57dce7f"),
+                            Description = "Hợp đồng cộng tác viên",
+                            Name = "CTV"
+                        },
+                        new
+                        {
+                            Id = new Guid("5d088140-8ea2-4557-8b69-3661d5ce0a41"),
+                            Description = "Hợp đồng thử việc",
+                            Name = "Thử việc"
+                        },
+                        new
+                        {
+                            Id = new Guid("8aa2b6a9-a626-4e8d-bb80-2c637400a2cc"),
+                            Description = "Hợp đồng chính thức",
+                            Name = "Chính thức"
+                        });
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Department", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ManagerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfMember")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Slogan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Department_tbl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3893968c-5665-4d02-b0e4-b7f40f2011b5"),
+                            CreateTime = new DateTime(2024, 8, 13, 0, 40, 59, 835, DateTimeKind.Local).AddTicks(2565),
+                            ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9",
+                            Name = "Dev",
+                            NumberOfMember = 0,
+                            Slogan = "Hế lô"
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.Download", b =>
@@ -354,36 +546,6 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("MediaFolders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d9fcd73e-e8c8-4737-9165-b18f1eeacdab"),
-                            CanDetectTracks = true,
-                            Deleted = false,
-                            FilesCount = 0,
-                            IsPrivate = "",
-                            IsProtected = "",
-                            IsPublic = true,
-                            Metadata = "",
-                            Name = "Public",
-                            Owner = "",
-                            Slug = ""
-                        },
-                        new
-                        {
-                            Id = new Guid("8e10bcd8-0af0-4667-89fe-5a4839b12a28"),
-                            CanDetectTracks = false,
-                            Deleted = false,
-                            FilesCount = 0,
-                            IsPrivate = "",
-                            IsProtected = "",
-                            IsPublic = true,
-                            Metadata = "",
-                            Name = "FilesUpload",
-                            Owner = "",
-                            Slug = ""
-                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaStorage", b =>
@@ -399,6 +561,61 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MediaStorages");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Notification", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsSeen")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notification_tbl");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Position", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("SalaryCoefficient")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Position_tbl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2ba5534c-bd17-4e0c-8dbe-98de4d4fde08"),
+                            Name = "Thuế thu nhập",
+                            SalaryCoefficient = 0.1m
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.RefreshToken", b =>
@@ -425,7 +642,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshToken");
+                    b.ToTable("RefreshToken_tbl");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -519,6 +736,21 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUser", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Department", "Department")
+                        .WithMany("Users")
+                        .HasForeignKey("DepartmentId");
+
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Position", "Position")
+                        .WithMany("Users")
+                        .HasForeignKey("PositionId");
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Position");
+                });
+
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUserRole", b =>
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationRole", "Role")
@@ -547,6 +779,44 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Contract", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.ContractType", "ContractType")
+                        .WithMany("Contracts")
+                        .HasForeignKey("ContractTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "Employee")
+                        .WithMany("Contracts")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContractType");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ContractAllowance", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Allowance", "Allowance")
+                        .WithMany("ContractAllowances")
+                        .HasForeignKey("AllowanceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BaseInsightDotNet.Core.Entities.Contract", "Contract")
+                        .WithMany()
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Allowance");
+
+                    b.Navigation("Contract");
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.Download", b =>
@@ -580,6 +850,17 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Notification", b =>
+                {
+                    b.HasOne("BaseInsightDotNet.Core.Entities.ApplicationUser", "User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.RefreshToken", b =>
@@ -629,6 +910,11 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Allowance", b =>
+                {
+                    b.Navigation("ContractAllowances");
+                });
+
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationRole", b =>
                 {
                     b.Navigation("UserRoles");
@@ -636,9 +922,23 @@ namespace BaseInsightDotNet.DataAccess.Migrations
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUser", b =>
                 {
+                    b.Navigation("Contracts");
+
+                    b.Navigation("Notifications");
+
                     b.Navigation("RefreshTokens");
 
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ContractType", b =>
+                {
+                    b.Navigation("Contracts");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Department", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaFolder", b =>
@@ -646,6 +946,11 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Navigation("Children");
 
                     b.Navigation("Files");
+                });
+
+            modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Position", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

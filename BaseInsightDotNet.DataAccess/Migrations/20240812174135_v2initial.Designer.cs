@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseInsightDotNet.DataAccess.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20240812172532_initialv7")]
-    partial class initialv7
+    [Migration("20240812174135_v2initial")]
+    partial class v2initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,19 +44,19 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("334d1c68-ece1-4a5a-b356-4661299716a8"),
+                            Id = new Guid("f889bc85-f3d5-4dbd-b8f1-46508f608120"),
                             AllowanceName = "Phụ cấp ăn trưa",
                             Amount = 50.0
                         },
                         new
                         {
-                            Id = new Guid("10ed7a62-fc50-4e96-a2ed-9ed86c2a5b41"),
+                            Id = new Guid("ca730861-1dfa-4c39-af50-8a2fe3bb21cd"),
                             AllowanceName = "Phụ cấp đi lại",
                             Amount = 100.0
                         },
                         new
                         {
-                            Id = new Guid("40e30a47-4ac1-4f0a-9b84-5295e9b187ee"),
+                            Id = new Guid("7664fd57-8ac7-46d8-a210-1139c6fc38e4"),
                             AllowanceName = "Phụ cấp ăn tối",
                             Amount = 60.0
                         });
@@ -87,6 +87,22 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1cb2b0c7-ebd0-42f8-8022-1e2f72585339",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "769748e0-3525-4574-82ff-fb8498a2f509",
+                            ConcurrencyStamp = "2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.ApplicationUser", b =>
@@ -108,7 +124,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DepartmentId")
+                    b.Property<Guid?>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -148,7 +164,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("PositionId")
+                    b.Property<Guid?>("PositionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SecurityStamp")
@@ -319,19 +335,19 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7606a87e-8332-40a1-aec8-f48d381c5d57"),
+                            Id = new Guid("f5c32e66-20b1-42e3-9ee7-195884909b82"),
                             Description = "Hợp đồng cộng tác viên",
                             Name = "CTV"
                         },
                         new
                         {
-                            Id = new Guid("dbefcdb5-3dc8-4f48-8a1b-56962052faff"),
+                            Id = new Guid("be31333d-5bdb-4831-85e7-cd19335fad2c"),
                             Description = "Hợp đồng thử việc",
                             Name = "Thử việc"
                         },
                         new
                         {
-                            Id = new Guid("c6e05e3c-27cc-4067-8d04-8674fb43da67"),
+                            Id = new Guid("47a61fd8-d77c-4352-920f-fa140b2761d9"),
                             Description = "Hợp đồng chính thức",
                             Name = "Chính thức"
                         });
@@ -371,8 +387,8 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("74d87357-18b3-44cd-ab1e-9262cb587f14"),
-                            CreateTime = new DateTime(2024, 8, 13, 0, 25, 32, 297, DateTimeKind.Local).AddTicks(4285),
+                            Id = new Guid("c60d73c3-b134-4239-9f03-2744cef6578d"),
+                            CreateTime = new DateTime(2024, 8, 13, 0, 41, 34, 972, DateTimeKind.Local).AddTicks(4031),
                             ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9",
                             Name = "Dev",
                             NumberOfMember = 0,
@@ -546,6 +562,36 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("MediaFolders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f853aa06-daea-469a-a196-8328d26067a9"),
+                            CanDetectTracks = true,
+                            Deleted = false,
+                            FilesCount = 0,
+                            IsPrivate = "",
+                            IsProtected = "",
+                            IsPublic = true,
+                            Metadata = "",
+                            Name = "Public",
+                            Owner = "",
+                            Slug = ""
+                        },
+                        new
+                        {
+                            Id = new Guid("df26a618-1929-4c60-97d6-32077bf6e3d1"),
+                            CanDetectTracks = false,
+                            Deleted = false,
+                            FilesCount = 0,
+                            IsPrivate = "",
+                            IsProtected = "",
+                            IsPublic = true,
+                            Metadata = "",
+                            Name = "FilesUpload",
+                            Owner = "",
+                            Slug = ""
+                        });
                 });
 
             modelBuilder.Entity("BaseInsightDotNet.Core.Entities.Media.MediaStorage", b =>
@@ -612,7 +658,7 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("339a5077-a38e-417b-9370-973f5d967f37"),
+                            Id = new Guid("e91511a4-193e-41a6-8738-9021c2f0e744"),
                             Name = "Thuế thu nhập",
                             SalaryCoefficient = 0.1m
                         });
@@ -740,15 +786,11 @@ namespace BaseInsightDotNet.DataAccess.Migrations
                 {
                     b.HasOne("BaseInsightDotNet.Core.Entities.Department", "Department")
                         .WithMany("Users")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.HasOne("BaseInsightDotNet.Core.Entities.Position", "Position")
                         .WithMany("Users")
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionId");
 
                     b.Navigation("Department");
 

@@ -37,10 +37,10 @@ namespace BaseInsightDotNet.DataAccess.Data
             base.OnModelCreating(builder);
             //SeedMedia(builder);
             //SeedRoles(builder);
-            SeedAllowance(builder);
-            SeedContractType(builder);
-            SeedDepartment(builder);
-            SeedPosition(builder);
+            //SeedAllowance(builder);
+            //SeedContractType(builder);
+            //SeedDepartment(builder);
+            //SeedPosition(builder);
             builder.Entity<ApplicationUserRole>(userRole =>
             {
                 userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
@@ -83,40 +83,40 @@ namespace BaseInsightDotNet.DataAccess.Data
         //        );
         //}
 
-        private static void SeedDepartment(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Department>().HasData
-            (
-                new Department { Id = Guid.NewGuid(), CreateTime = DateTime.Now, ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9", Name = "Dev", Slogan = "Hế lô", NumberOfMember = 0 }
-            );
-        }
+        //private static void SeedDepartment(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Department>().HasData
+        //    (
+        //        new Department { Id = Guid.NewGuid(), CreateTime = DateTime.Now, ManagerId = "1240b4b9-798c-4b54-8b69-e68565dc6ba9", Name = "Dev", Slogan = "Hế lô", NumberOfMember = 0 }
+        //    );
+        //}
 
-        private static void SeedContractType(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ContractType>().HasData
-            (
-                new ContractType { Id = Guid.NewGuid(), Name = "CTV", Description = "Hợp đồng cộng tác viên" },
-                new ContractType { Id = Guid.NewGuid(), Name = "Thử việc", Description = "Hợp đồng thử việc"},
-                new ContractType { Id = Guid.NewGuid(), Name = "Chính thức", Description = "Hợp đồng chính thức"}
-            );
-        }
+        //private static void SeedContractType(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ContractType>().HasData
+        //    (
+        //        new ContractType { Id = Guid.NewGuid(), Name = "CTV", Description = "Hợp đồng cộng tác viên" },
+        //        new ContractType { Id = Guid.NewGuid(), Name = "Thử việc", Description = "Hợp đồng thử việc"},
+        //        new ContractType { Id = Guid.NewGuid(), Name = "Chính thức", Description = "Hợp đồng chính thức"}
+        //    );
+        //}
 
-        private static void SeedAllowance(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Allowance>().HasData
-                (
-                    new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp ăn trưa", Amount = 50},
-                    new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp đi lại", Amount = 100},
-                    new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp ăn tối", Amount = 60}
-                );
-        }
+        //private static void SeedAllowance(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Allowance>().HasData
+        //        (
+        //            new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp ăn trưa", Amount = 50},
+        //            new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp đi lại", Amount = 100},
+        //            new Allowance() { Id = Guid.NewGuid(), AllowanceName = "Phụ cấp ăn tối", Amount = 60}
+        //        );
+        //}
 
-        private static void SeedPosition(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Position>().HasData
-                (
-                    new Position() { Id = Guid.NewGuid(), Name = "Thuế thu nhập", SalaryCoefficient = (decimal) 0.1}
-                );
-        }
+        //private static void SeedPosition(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Position>().HasData
+        //        (
+        //            new Position() { Id = Guid.NewGuid(), Name = "Thuế thu nhập", SalaryCoefficient = (decimal) 0.1}
+        //        );
+        //}
     }
 }
