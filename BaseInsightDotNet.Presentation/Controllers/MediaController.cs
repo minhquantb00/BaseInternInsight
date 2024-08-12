@@ -47,7 +47,7 @@ namespace BaseInsightDotNet.Presentation.Controllers
                         }
 
                         // Kiểm tra loại file được phép
-                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".pdf", ".docx", ".exe", ".mp4", ".ppt", ".ppxs",  ".potx", ".msi", ".html" };
                         var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
 
                         if (!allowedExtensions.Contains(fileExtension))
