@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BaseInsightDotNet.Business\BaseInsightDotNet.Business.csproj" />
     <ProjectReference Include="..\BaseInsightDotNet.Commons\BaseInsightDotNet.Commons.csproj" />
+    <ProjectReference Include="..\BaseInsightDotNet.Core\BaseInsightDotNet.Core.csproj" />
     <ProjectReference Include="..\BaseInsightDotNet.DataAccess\BaseInsightDotNet.DataAccess.csproj" />
   </ItemGroup>
 
