@@ -35,5 +35,11 @@ namespace BaseInsightDotNet.Commons.Enums
             DaChamDut = 4,
             DangCho = 5
         }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public enum PositionEnum
+        {
+
+        }
     }
 }

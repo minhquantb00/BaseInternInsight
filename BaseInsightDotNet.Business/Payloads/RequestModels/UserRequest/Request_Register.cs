@@ -27,5 +27,7 @@ namespace BaseInsightDotNet.Business.Payloads.RequestModels.UserRequest
         public Enumerate.Gender Gender { get; set; }
 
         public DateTime DateOfBirth { get; set; }
+        public Guid DepartmentId { get; set; }
+        public Guid PositionId { get; set; }
     }
 }

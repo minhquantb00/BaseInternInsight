@@ -1,9 +1,9 @@
-import axios from 'axios'
-import router from '@/router'
 import LocalStorageKey from '@/constants/LocalStorageKey'
+import router from '@/router'
+import axios from 'axios'
 
 const axiosIns = axios.create({
-baseURL: import.meta.env.VITE_BASE_API_URL,
+baseURL: 'https://localhost:7130/api',
 timeout: 1000,
 headers: {
   'Accept': 'application/json',

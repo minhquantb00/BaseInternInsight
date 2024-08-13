@@ -92,7 +92,9 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     FullName = registerUser.FullName,
                     Gender = registerUser.Gender,
                     PhoneNumber = registerUser.PhoneNumber,
-                    TwoFactorEnabled = false
+                    TwoFactorEnabled = false,
+                    DepartmentId = registerUser.DepartmentId,
+                    PositionId = registerUser.PositionId,
                 };
                 IdentityResult result = null;
                 if (registerUser.Password.IsNullOrEmpty())

@@ -10,7 +10,16 @@ import authV2MaskDark from '@images/pages/misc-mask-dark.png'
 import authV2MaskLight from '@images/pages/misc-mask-light.png'
 import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
 import { themeConfig } from '@themeConfig'
+import {loginRequest} from '@/interfaces/requestModels/loginRequest'
+import {AuthService} from "@/services/authService"
+import {AuthAlert, AuthMessage} from "@/constants/enums"
+import LocalStorageKey from '@/constants/LocalStorageKey'
+import {emailValidator, passwordValidator, requiredValidator} from "@core/utils/validators"
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
 
+const router = useRouter();
+const time = ref();
 const authThemeImg = useGenerateImageVariant(authV2LoginIllustrationLight, authV2LoginIllustrationDark, authV2LoginIllustrationBorderedLight, authV2LoginIllustrationBorderedDark, true)
 const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
 const isPasswordVisible = ref(false)
@@ -18,6 +27,51 @@ const refVForm = ref()
 const email = ref('admin@demo.com')
 const password = ref('admin')
 const rememberMe = ref(false)
+const loading = ref(false)
+const disabled = ref(false)
+
+const businessExecute = ref(loginRequest)
+
+const login = async () => {
+  loading.value = true;
+
+  const { token, userInfo, error } = await AuthServices.login( workingItem.value);
+
+  if (isRememberMe) {
+    localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, token);
+    localStorage.setItem(LocalStorageKey.USER_INFO, JSON.stringify(userInfo));
+  } else {
+    sessionStorage.setItem(LocalStorageKey.ACCESS_TOKEN, token);
+    sessionStorage.setItem(LocalStorageKey.USER_INFO, JSON.stringify(userInfo));
+  }
+
+  alertItem.value = {
+    color: error ? AuthAlert.ColorThatBai : AuthAlert.ColorThanhCong,
+    icon: error ? AuthAlert.IconThatBai : AuthAlert.IconThanhCong,
+    message: error
+      ? error?.detail || AuthMessage.LoginFail
+      : AuthMessage.LoginSuccess,
+  };
+
+  if(!error){
+    disabled.value = true
+    time.value = setTimeout(() => {
+      router.push("/");
+    }, 1000);
+  };
+
+  loading.value = false;
+};
+
+const onSubmitForm = () => {
+  refVForm.value?.validate().then(({ valid }) => {
+    if (valid){
+      login();
+    }
+  });
+};
+
+
 </script>
 
 <template>
@@ -88,32 +142,37 @@ const rememberMe = ref(false)
         <VCardText>
           <VForm
             ref="refVForm"
-            @submit="() => { }"
+            @submit="onSubmitForm"
           >
             <VRow>
               <!-- email -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="email"
-                  label="Email"
-                  type="email"
+                  v-model="businessExecute.username"
+                  label="Username"
+                  type="text"
                   autofocus
+                  :disabled="loading"
+                  :rules="[requiredValidator]"
                 />
               </VCol>
 
               <!-- password -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="password"
+                  v-model="businessExecute.password"
                   label="Password"
+                  :disabled="loading"
                   :type="isPasswordVisible ? 'text' : 'password'"
                   :append-inner-icon="isPasswordVisible ? 'tabler-eye-off' : 'tabler-eye'"
+                  :rules="[requiredValidator, passwordValidator]"
                   @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 />
 
                 <div class="d-flex align-center flex-wrap justify-space-between mt-2 mb-4">
                   <VCheckbox
                     v-model="rememberMe"
+                    :disabled="loading"
                     label="Remember me"
                   />
                   <a
@@ -127,6 +186,8 @@ const rememberMe = ref(false)
                 <VBtn
                   block
                   type="submit"
+                  :loading="loading"
+                :disabled="disabled"
                 >
                   Login
                 </VBtn>

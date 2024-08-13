@@ -115,7 +115,7 @@ namespace BaseInsightDotNet.DataAccess.Data
         //{
         //    modelBuilder.Entity<Position>().HasData
         //        (
-        //            new Position() { Id = Guid.NewGuid(), Name = "Thuế thu nhập", SalaryCoefficient = (decimal) 0.1}
+        //            new Position() { Id = Guid.NewGuid(), Name = "Nhân viên", SalaryCoefficient = (decimal) 1.2}
         //        );
         //}
     }
