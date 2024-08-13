@@ -11,19 +11,25 @@ const errorList = {
   [AuthMessage.ErrorAccountVerified]: { error: { detail: AuthMessage.AccountVerified } },
 }
 
-const login = async (data) => {
-  try{
-    const result = await axiosIns.post(`${CONTROLLER_NAME}/Login`, data)
-    return result.data
+const login = async (params) => {
+  try {
+    console.log(params)
+      const result = await axiosIns.post(`${CONTROLLER_NAME}/Login`, params);
+      console.log(result);
+      return result.data;
+  } catch (error) {
+      if (error.response && error.response.data && error.response.data.detail) {
+          return errorList[error.response.data.detail];
+      } else {
+          return { error: AuthMessage.LoginFail };
+      }
   }
-  catch(error){
-    return errorList[error.response.data.detail] || { error: AuthMessage.LoginFail };
-  }
-}
+};
 
-const register = async (data) => {
+
+const register = async (params) => {
   try{
-    const result = await axiosIns.post(`${CONTROLLER_NAME}/RegisterUser`, data)
+    const result = await axiosIns.post(`${CONTROLLER_NAME}/RegisterUser`, params)
     return result.data
   }
   catch(error){

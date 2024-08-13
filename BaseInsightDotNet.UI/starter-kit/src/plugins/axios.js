@@ -33,11 +33,11 @@ axiosIns.interceptors.response.use(response => {
   if (error.response.status === 401) {
     // ℹ️ Logout user and redirect to login page
     // Remove "userData" from localStorage
-    localStorage.removeItem('userData')
+    localStorage.removeItem('userInfo')
 
     // Remove "accessToken" from localStorage
     localStorage.removeItem('accessToken')
-    localStorage.removeItem('userAbilities')
+    localStorage.removeItem('refreshToken')
 
     // If 401 response returned from api
     router.push('/login')

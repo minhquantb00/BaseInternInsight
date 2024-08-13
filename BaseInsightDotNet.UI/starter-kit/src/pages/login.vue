@@ -15,7 +15,7 @@ import {AuthService} from "@/services/authService"
 import {AuthAlert, AuthMessage} from "@/constants/enums"
 import LocalStorageKey from '@/constants/LocalStorageKey'
 import {emailValidator, passwordValidator, requiredValidator} from "@core/utils/validators"
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
 
 const router = useRouter();
@@ -34,10 +34,10 @@ const businessExecute = ref(loginRequest)
 
 const login = async () => {
   loading.value = true;
-
-  const { token, userInfo, error } = await AuthServices.login( workingItem.value);
-
-  if (isRememberMe) {
+  console.log(businessExecute.value)
+  const result = await AuthService.login( businessExecute.value);
+  console.log(result);
+  if (rememberMe) {
     localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, token);
     localStorage.setItem(LocalStorageKey.USER_INFO, JSON.stringify(userInfo));
   } else {
@@ -45,13 +45,13 @@ const login = async () => {
     sessionStorage.setItem(LocalStorageKey.USER_INFO, JSON.stringify(userInfo));
   }
 
-  alertItem.value = {
-    color: error ? AuthAlert.ColorThatBai : AuthAlert.ColorThanhCong,
-    icon: error ? AuthAlert.IconThatBai : AuthAlert.IconThanhCong,
-    message: error
-      ? error?.detail || AuthMessage.LoginFail
-      : AuthMessage.LoginSuccess,
-  };
+  // alertItem.value = {
+  //   color: error ? AuthAlert.ColorThatBai : AuthAlert.ColorThanhCong,
+  //   icon: error ? AuthAlert.IconThatBai : AuthAlert.IconThanhCong,
+  //   message: error
+  //     ? error?.detail || AuthMessage.LoginFail
+  //     : AuthMessage.LoginSuccess,
+  // };
 
   if(!error){
     disabled.value = true
@@ -63,9 +63,10 @@ const login = async () => {
   loading.value = false;
 };
 
+
 const onSubmitForm = () => {
-  refVForm.value?.validate().then(({ valid }) => {
-    if (valid){
+  refVForm.value?.validate().then(({ valid: isValid }) => {
+    if (isValid){
       login();
     }
   });
@@ -142,7 +143,7 @@ const onSubmitForm = () => {
         <VCardText>
           <VForm
             ref="refVForm"
-            @submit="onSubmitForm"
+            @submit.prevent="onSubmitForm"
           >
             <VRow>
               <!-- email -->
@@ -152,7 +153,7 @@ const onSubmitForm = () => {
                   label="Username"
                   type="text"
                   autofocus
-                  :disabled="loading"
+                  :loading="loading"
                   :rules="[requiredValidator]"
                 />
               </VCol>
@@ -162,7 +163,7 @@ const onSubmitForm = () => {
                 <AppTextField
                   v-model="businessExecute.password"
                   label="Password"
-                  :disabled="loading"
+                  :loading="loading"
                   :type="isPasswordVisible ? 'text' : 'password'"
                   :append-inner-icon="isPasswordVisible ? 'tabler-eye-off' : 'tabler-eye'"
                   :rules="[requiredValidator, passwordValidator]"
@@ -172,7 +173,7 @@ const onSubmitForm = () => {
                 <div class="d-flex align-center flex-wrap justify-space-between mt-2 mb-4">
                   <VCheckbox
                     v-model="rememberMe"
-                    :disabled="loading"
+                    :loading="loading"
                     label="Remember me"
                   />
                   <a
