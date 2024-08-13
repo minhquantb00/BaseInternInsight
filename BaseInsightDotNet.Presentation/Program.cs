@@ -4,6 +4,7 @@ using BaseInsightDotNet.DataAccess.Configure;
 using BaseInsightDotNet.DataAccess.Data;
 using BaseInsightDotNet.DataAccess.SeedData;
 using BaseInsightDotNet.Presentation.Configuration;
+using BaseInsightDotNet.Presentation.Hubs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,7 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
 });
 
 builder.Services.RegisterService();
+builder.Services.AddSignalR();
 //Add Config for Required Email
 builder.Services.Configure<IdentityOptions>(
     opts => opts.SignIn.RequireConfirmedEmail = true
@@ -109,13 +111,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.UseCors("corsGlobalPolicy");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<NotificationHub>("/notificationhub");
+});
 app.MapControllers();
 
 app.Run();
