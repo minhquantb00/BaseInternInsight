@@ -32,6 +32,13 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IMediaTypeResolver, MediaTypeResolver>();
             services.AddScoped<ISpecificationFactory, SpecificationFactory>();
             services.AddScoped<IImageProcessor, DefaultImageProcessor>();
+            services.AddScoped<DepartmentConverter>();
+            services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
+            services.AddScoped<IRepository<Department>, Repository<Department>>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IPositionService, PositionService>();
+            services.AddScoped<IRepository<Position>, Repository<Position>>();
+            services.AddScoped<PositionConverter>();
         }
     }
 }

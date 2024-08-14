@@ -1,5 +1,5 @@
 import { AuthMessage } from '@/constants/enums';
-import axiosIns from "@/plugins/axios";
+import axios from 'axios';
 
 const CONTROLLER_NAME = 'Auth'
 
@@ -13,9 +13,7 @@ const errorList = {
 
 const login = async (params) => {
   try {
-    console.log(params)
-      const result = await axiosIns.post(`${CONTROLLER_NAME}/Login`, params);
-      console.log(result);
+      const result = await axios.post(`https://localhost:7130/api/${CONTROLLER_NAME}/Login`, params);
       return result.data;
   } catch (error) {
       if (error.response && error.response.data && error.response.data.detail) {
@@ -29,11 +27,19 @@ const login = async (params) => {
 
 const register = async (params) => {
   try{
-    const result = await axiosIns.post(`${CONTROLLER_NAME}/RegisterUser`, params)
+    const result = await axios.post(`https://localhost:7130/api/${CONTROLLER_NAME}/RegisterUser`, params, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
     return result.data
   }
   catch(error){
-    return {error: AuthMessage.RegisterFail}
+    if (error.response && error.response.data && error.response.data.detail) {
+      return errorList[error.response.data.detail];
+  } else {
+      return { error: AuthMessage.LoginFail };
+  }
   }
 }
 

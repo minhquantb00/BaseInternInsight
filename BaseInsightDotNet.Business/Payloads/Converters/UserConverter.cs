@@ -17,7 +17,7 @@ namespace BaseInsightDotNet.Business.Payloads.Converters
                 DateOfBirth = user.DateOfBirth,
                 Email = user.Email,
                 Gender = user.Gender == Commons.Enums.Enumerate.Gender.Unknown ? "Không xác định" : user.Gender == Commons.Enums.Enumerate.Gender.Male ? "Nam" : "Nữ",
-                Id = Guid.Parse(user.Id),
+                Id = user.Id,
                 PhoneNumber = user.PhoneNumber,
                 AvatarUrl = user.AvatarUrl,
                 FullName = user.FullName,

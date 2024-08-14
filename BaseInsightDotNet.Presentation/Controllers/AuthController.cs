@@ -16,6 +16,7 @@ namespace BaseInsightDotNet.Presentation.Controllers
             _authService = authService;
         }
         [HttpPost]
+        [Consumes(contentType: "multipart/form-data")]
         public async Task<IActionResult> RegisterUser([FromForm] Request_Register request)
         {
             return Ok(await _authService.RegisterUser(request));

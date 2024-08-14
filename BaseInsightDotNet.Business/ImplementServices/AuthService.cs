@@ -81,7 +81,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
                         Status = StatusCodes.Status400BadRequest
                     };
                 }
-                ApplicationUser user = new()
+                ApplicationUser user = new ApplicationUser
                 {
                     Id = Guid.NewGuid().ToString(),
                     Email = registerUser.Email,
