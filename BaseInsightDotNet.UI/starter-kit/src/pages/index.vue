@@ -1,7 +1,9 @@
 <script setup>
 import { paginationMeta } from '@/@fake-db/utils'
+import { filterDepartmentRequest } from '@/interfaces/requestModels/filerDepartmentRequest'
+import { DeparmentService } from '@/services/deparmentService'
 import { VDataTableServer } from 'vuetify/labs/VDataTable'
-
+import ModalAddDepartment from './department/modules/ModalAddDepartment.vue'
 const searchQuery = ref('')
 const dateRange = ref('')
 const selectedStatus = ref()
@@ -9,6 +11,14 @@ const totalInvoices = ref(0)
 const invoices = ref([])
 const selectedRows = ref([])
 
+const props = defineProps({
+  departmentData: {
+    type: Object,
+    required: true,
+  },
+})
+
+const isDepartmentAddDialogVisible = ref(false)
 const options = ref({
   page: 1,
   itemsPerPage: 10,
@@ -25,29 +35,30 @@ currentPage.value = options.value.page
 // 👉 headers
 const headers = [
   {
-    title: '#ID',
-    key: 'id',
-  },
-  {
-    title: 'Trending',
-    key: 'trending',
+    title: 'STT',
+    key: 'stt',
     sortable: false,
   },
   {
-    title: 'Client',
-    key: 'client',
+    title: 'Name',
+    key: 'name',
+    sortable: false,
   },
   {
-    title: 'Total',
-    key: 'total',
+    title: 'Slogan',
+    key: 'slogan',
   },
   {
-    title: 'Issued Date',
-    key: 'date',
+    title: 'NumberOfMember',
+    key: 'numberOfMember',
   },
   {
-    title: 'Balance',
-    key: 'balance',
+    title: 'Manager',
+    key: 'manager',
+  },
+  {
+    title: 'Create time',
+    key: 'createTime',
   },
   {
     title: 'Actions',
@@ -56,6 +67,7 @@ const headers = [
   },
 ]
 
+const filterDepartment = ref(filterDepartmentRequest)
 
 // 👉 Invoice balance variant resolver
 const resolveInvoiceBalanceVariant = (balance, total) => {
@@ -75,6 +87,14 @@ const resolveInvoiceBalanceVariant = (balance, total) => {
     chip: { variant: 'text' },
   }
 }
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
 
 const resolveInvoiceStatusVariantAndIcon = status => {
   if (status === 'Partial Payment')
@@ -139,13 +159,18 @@ const computedMoreList = computed(() => {
 })
 
 
-watchEffect(() => {
+watchEffect( async () => {
   const [start, end] = dateRange.value ? dateRange.value.split('to') : ''
+  const result = await DeparmentService.getAllDepartments(filterDepartment);
+  invoices.value = result
+  totalInvoices.value = result.length
 })
+
 </script>
 
 <template>
-  <VCard
+  <div>
+    <VCard
     v-if="invoices"
     id="invoice-list"
   >
@@ -166,6 +191,9 @@ watchEffect(() => {
         <!-- 👉 Create invoice -->
         <VBtn
           prepend-icon="tabler-plus"
+          variant="elevated"
+            class="me-4"
+            @click="isDepartmentAddDialogVisible = true"
         >
           Create Department
         </VBtn>
@@ -205,13 +233,60 @@ watchEffect(() => {
       v-model:items-per-page="options.itemsPerPage"
       v-model:page="options.page"
       :loading="isLoading"
-      :items-length="totalInvoices"
       :headers="headers"
       :items="invoices"
       class="text-no-wrap"
       @update:options="options = $event"
     >
       <!-- Trending Header -->
+      <template #item.stt="{ index }">
+        {{ (options.page - 1) * options.itemsPerPage + index + 1 }}
+      </template>
+
+      <template #item.name="{ item }">
+        {{ item.raw.name }}
+    </template>
+
+    <template #item.numberOfMember="{ item }">
+      {{ item.raw.numberOfMember }}
+  </template>
+  <template #item.createTime="{ item }">
+    {{ formatDate(item.raw.createTime) }}
+</template>
+
+<template #item.manager="{ item }">
+  <div class="d-flex align-center">
+    <VAvatar
+      size="38"
+      class="me-3"
+    >
+      <VImg
+        v-if="item.raw.manager.avatarUrl.length"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUOWoK4J49TD8SPsBIXrk4_kOumIRofJDwkA&s"
+      />
+      <span v-else>{{ avatarText(item.raw.manager.fullName) }}</span>
+    </VAvatar>
+    <div class="d-flex flex-column">
+      <h6 class="text-body-1 font-weight-medium mb-0">
+        {{ item.raw.manager.fullName }}
+      </h6>
+      <span class="text-sm text-disabled">{{ item.raw.manager.email }}</span>
+    </div>
+  </div>
+</template>
+
+<!-- Actions -->
+<template #item.actions="{ item }">
+  <IconBtn>
+    <VIcon icon="tabler-trash" />
+  </IconBtn>
+
+  <IconBtn>
+    <VIcon icon="tabler-eye" />
+  </IconBtn>
+
+</template>
+
 
       <!-- pagination -->
 
@@ -254,6 +329,8 @@ watchEffect(() => {
     </VDataTableServer>
     <!-- !SECTION -->
   </VCard>
+  <ModalAddDepartment v-model:isDialogVisible="isDepartmentAddDialogVisible" :departmentData="props.departmentData"/>
+  </div>
 </template>
 
 <style lang="scss">

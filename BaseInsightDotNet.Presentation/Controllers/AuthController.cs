@@ -27,4 +27,4 @@ namespace BaseInsightDotNet.Presentation.Controllers
             return Ok(await _authService.Login(request));
         }
     }
-}
+} 

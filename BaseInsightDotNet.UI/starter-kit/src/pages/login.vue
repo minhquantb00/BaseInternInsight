@@ -16,6 +16,8 @@ import { themeConfig } from "@themeConfig";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { VForm } from "vuetify/components/VForm";
 
 const router = useRouter();
@@ -55,22 +57,24 @@ const login = async () => {
     sessionStorage.setItem(LocalStorageKey.USER_INFO, JSON.stringify(decode));
   }
   if (result.status === 200) {
-    $toast.open({
-      message: result.message,
+    toast(result.message, {
       type: "success",
-      dismissible: true,
-      duration: 2000,
+      transition: "flip",
+      "autoClose": 2000,
+      theme: "dark",
+      dangerouslyHTMLString: true,
     });
     disabled.value = true;
     time.value = setTimeout(() => {
       router.push("/");
     }, 2000);
   } else {
-    $toast.open({
-      message: result.message,
+    toast(result.message, {
       type: "error",
-      dismissible: true,
-      duration: 2000,
+      transition: "flip",
+      theme: "dark",
+      "autoClose": 2000,
+      dangerouslyHTMLString: true,
     });
   }
 
