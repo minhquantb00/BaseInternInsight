@@ -95,6 +95,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     TwoFactorEnabled = false,
                     DepartmentId = registerUser.DepartmentId,
                     PositionId = registerUser.PositionId,
+                    IsDeleted = false
                 };
                 IdentityResult result = null;
                 if (registerUser.Password.IsNullOrEmpty())

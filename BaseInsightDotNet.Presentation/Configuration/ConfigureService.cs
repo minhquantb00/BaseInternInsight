@@ -39,6 +39,7 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IPositionService, PositionService>();
             services.AddScoped<IRepository<Position>, Repository<Position>>();
             services.AddScoped<PositionConverter>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }
