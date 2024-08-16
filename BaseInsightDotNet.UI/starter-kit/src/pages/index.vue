@@ -1,15 +1,17 @@
 <script setup>
 import { paginationMeta } from '@/@fake-db/utils'
 import { filterDepartmentRequest } from '@/interfaces/requestModels/filerDepartmentRequest'
+import { filterUserRequest } from '@/interfaces/requestModels/filterUserRequest'
 import { DeparmentService } from '@/services/deparmentService'
+import { UserService } from '@/services/userService'
+import { onMounted } from 'vue'
 import { VDataTableServer } from 'vuetify/labs/VDataTable'
 import ModalAddDepartment from './department/modules/ModalAddDepartment.vue'
-const searchQuery = ref('')
-const dateRange = ref('')
-const selectedStatus = ref()
+
 const totalInvoices = ref(0)
 const invoices = ref([])
 const selectedRows = ref([])
+const dataManager = ref([])
 
 const props = defineProps({
   departmentData: {
@@ -17,7 +19,7 @@ const props = defineProps({
     required: true,
   },
 })
-
+const filterUser = ref(filterUserRequest)
 const isDepartmentAddDialogVisible = ref(false)
 const options = ref({
   page: 1,
@@ -69,101 +71,37 @@ const headers = [
 
 const filterDepartment = ref(filterDepartmentRequest)
 
-// 👉 Invoice balance variant resolver
-const resolveInvoiceBalanceVariant = (balance, total) => {
-  if (balance === total)
-    return {
-      status: 'Unpaid',
-      chip: { color: 'error' },
-    }
-  if (balance === 0)
-    return {
-      status: 'Paid',
-      chip: { color: 'success' },
-    }
 
-  return {
-    status: balance,
-    chip: { variant: 'text' },
-  }
-}
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
 
-  return `${year}-${month}-${day}`;
-};
-
-const resolveInvoiceStatusVariantAndIcon = status => {
-  if (status === 'Partial Payment')
-    return {
-      variant: 'success',
-      icon: 'tabler-circle-half-2',
-    }
-  if (status === 'Paid')
-    return {
-      variant: 'warning',
-      icon: 'tabler-chart-pie',
-    }
-  if (status === 'Downloaded')
-    return {
-      variant: 'info',
-      icon: 'tabler-arrow-down-circle',
-    }
-  if (status === 'Draft')
-    return {
-      variant: 'primary',
-      icon: 'tabler-device-floppy',
-    }
-  if (status === 'Sent')
-    return {
-      variant: 'secondary',
-      icon: 'tabler-circle-check',
-    }
-  if (status === 'Past Due')
-    return {
-      variant: 'error',
-      icon: 'tabler-alert-circle',
-    }
-
-  return {
-    variant: 'secondary',
-    icon: 'tabler-x',
-  }
+const getAllDepartment = async (filter) => {
+  const result = await DeparmentService.getAllDepartments({
+    name: filter.name,
+    managerId: filter.managerId
+  });
+  invoices.value = result
+  totalInvoices.value = result.length
 }
 
-const computedMoreList = computed(() => {
-  return paramId => [
-    {
-      title: 'Download',
-      value: 'download',
-      prependIcon: 'tabler-download',
-    },
-    {
-      title: 'Edit',
-      value: 'edit',
-      prependIcon: 'tabler-pencil',
-      to: {
-        name: 'apps-invoice-edit-id',
-        params: { id: paramId },
-      },
-    },
-    {
-      title: 'Duplicate',
-      value: 'duplicate',
-      prependIcon: 'tabler-layers-intersect',
-    },
-  ]
+const getAllManger = async (filter) => {
+  const result = await UserService.getAllUsers(filterUser);
+  dataManager.value = result
+}
+
+const refreshData = async () => {
+  await getAllDepartment();
+
+}
+
+watchEffect( async () => {
+  await getAllDepartment(filterDepartment);
+  await getAllManger();
 })
 
 
-watchEffect( async () => {
-  const [start, end] = dateRange.value ? dateRange.value.split('to') : ''
-  const result = await DeparmentService.getAllDepartments(filterDepartment);
-  invoices.value = result
-  totalInvoices.value = result.length
+onMounted(async () => {
+  await getAllManger();
+  await getAllDepartment(filterDepartment);
+
 })
 
 </script>
@@ -179,6 +117,7 @@ watchEffect( async () => {
         <AppSelect
           :model-value="options.itemsPerPage"
           :items="[
+            {value: 5, title: '5'},
             { value: 10, title: '10' },
             { value: 25, title: '25' },
             { value: 50, title: '50' },
@@ -205,7 +144,7 @@ watchEffect( async () => {
         <!-- 👉 Search  -->
         <div class="invoice-list-filter">
           <AppTextField
-            v-model="searchQuery"
+            v-model="filterDepartment.name"
             placeholder="Search..."
             density="compact"
           />
@@ -214,12 +153,15 @@ watchEffect( async () => {
         <!-- 👉 Select status -->
         <div class="invoice-list-filter">
           <AppSelect
-            v-model="selectedStatus"
+            v-model="filterDepartment.managerId"
             placeholder="Contract Type"
             clearable
+            ref="select"
             clear-icon="tabler-x"
             single-line
-            :items="['Thử việc', 'Cộng tác viên', 'Chính thức']"
+            item-value="id"
+            item-title="fullName"
+            :items="dataManager"
           />
         </div>
       </div>
@@ -329,7 +271,7 @@ watchEffect( async () => {
     </VDataTableServer>
     <!-- !SECTION -->
   </VCard>
-  <ModalAddDepartment v-model:isDialogVisible="isDepartmentAddDialogVisible" :departmentData="props.departmentData"/>
+  <ModalAddDepartment v-model:isDialogVisible="isDepartmentAddDialogVisible" :departmentData="props.departmentData" @submit="refreshData"/>
   </div>
 </template>
 

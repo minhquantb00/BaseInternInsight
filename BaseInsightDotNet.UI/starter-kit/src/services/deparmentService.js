@@ -1,23 +1,7 @@
-import { AuthMessage } from "@/constants/enums";
 import axios from "axios";
 
 const CONTROLLER_NAME = "Department";
 
-const errorList = {
-  [AuthMessage.ErrorEmailNotActivated]: {
-    error: { detail: AuthMessage.EmailNotActivated },
-  },
-  [AuthMessage.ErrorEmailNotFound]: {
-    error: { detail: AuthMessage.LoginError },
-  },
-  [AuthMessage.ErrorPasswordInvalid]: {
-    error: { detail: AuthMessage.LoginError },
-  },
-  [AuthMessage.ErrorEmailExist]: { error: { detail: AuthMessage.ExistUser } },
-  [AuthMessage.ErrorAccountVerified]: {
-    error: { detail: AuthMessage.AccountVerified },
-  },
-};
 
 const getAllDepartments = async (param) => {
   try {
@@ -31,11 +15,7 @@ const getAllDepartments = async (param) => {
     );
     return result.data;
   } catch (error) {
-    if (error.response && error.response.data && error.response.data.detail) {
-      return errorList[error.response.data.detail];
-    } else {
-      return { error: AuthMessage.LoginFail };
-    }
+    throw error;
   }
 };
 
@@ -49,11 +29,7 @@ const createDepartment = async (params) => {
     })
     return result.data
   }catch(error){
-    if (error.response && error.response.data && error.response.data.detail) {
-      return errorList[error.response.data.detail];
-    } else {
-      return { error: AuthMessage.LoginFail };
-    }
+    throw error;
   }
 }
 
@@ -66,11 +42,7 @@ const updateDepartment = async (params) => {
     })
     return result.data
   }catch(error){
-    if (error.response && error.response.data && error.response.data.detail) {
-      return errorList[error.response.data.detail];
-    } else {
-      return { error: AuthMessage.LoginFail };
-    }
+    throw error;
   }
 }
 
@@ -83,11 +55,7 @@ const deleteDepartment = async (id) => {
     })
     return result.data
   }catch(error){
-    if (error.response && error.response.data && error.response.data.detail) {
-      return errorList[error.response.data.detail];
-    } else {
-      return { error: AuthMessage.LoginFail };
-    }
+    throw error;
   }
 }
 const getDepartmentById = async (id) => {
@@ -99,11 +67,7 @@ const getDepartmentById = async (id) => {
     })
     return result.data
   }catch(error){
-    if (error.response && error.response.data && error.response.data.detail) {
-      return errorList[error.response.data.detail];
-    } else {
-      return { error: AuthMessage.LoginFail };
-    }
+    throw error;
   }
 }
 
