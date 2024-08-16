@@ -12,7 +12,6 @@ const totalInvoices = ref(0)
 const invoices = ref([])
 const selectedRows = ref([])
 const dataManager = ref([])
-
 const props = defineProps({
   departmentData: {
     type: Object,
@@ -72,7 +71,6 @@ const headers = [
 const filterDepartment = ref(filterDepartmentRequest)
 
 
-
 const getAllDepartment = async (filter) => {
   const result = await DeparmentService.getAllDepartments({
     name: filter.name,
@@ -83,24 +81,43 @@ const getAllDepartment = async (filter) => {
 }
 
 const getAllManger = async (filter) => {
-  const result = await UserService.getAllUsers(filterUser);
+  const result = await UserService.getAllUsers(filterUser.value);
   dataManager.value = result
 }
+const paginatedData = computed(() => {
+  const start = (options.value.page - 1) * options.value.itemsPerPage;
+  const end = start + options.value.itemsPerPage;
+  return invoices.value.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(invoices.value.length * 1.0 / options.value.itemsPerPage);
+});
+
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
 
 const refreshData = async () => {
-  await getAllDepartment();
+  await getAllDepartment(filterDepartment.value);
 
 }
 
 watchEffect( async () => {
-  await getAllDepartment(filterDepartment);
+  await getAllDepartment(filterDepartment.value);
   await getAllManger();
 })
 
 
 onMounted(async () => {
   await getAllManger();
-  await getAllDepartment(filterDepartment);
+  await getAllDepartment(filterDepartment.value);
 
 })
 
@@ -154,7 +171,7 @@ onMounted(async () => {
         <div class="invoice-list-filter">
           <AppSelect
             v-model="filterDepartment.managerId"
-            placeholder="Contract Type"
+            placeholder="Manager"
             clearable
             ref="select"
             clear-icon="tabler-x"
@@ -176,7 +193,7 @@ onMounted(async () => {
       v-model:page="options.page"
       :loading="isLoading"
       :headers="headers"
-      :items="invoices"
+      :items="paginatedData"
       class="text-no-wrap"
       @update:options="options = $event"
     >
@@ -241,8 +258,9 @@ onMounted(async () => {
 
           <VPagination
             v-model="options.page"
-            :length="Math.ceil(totalInvoices / options.itemsPerPage)"
-            :total-visible="$vuetify.display.xs ? 1 : Math.ceil(totalInvoices / options.itemsPerPage)"
+            :length="totalPages"
+            :total-visible="$vuetify.display.xs ? 1 : totalPages"
+            rounded="circle"
           >
             <template #prev="slotProps">
               <VBtn
