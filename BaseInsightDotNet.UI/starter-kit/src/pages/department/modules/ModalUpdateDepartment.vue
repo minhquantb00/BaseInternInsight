@@ -1,23 +1,13 @@
 <script setup>
-import { updateDepartmentRequest } from "@/interfaces/requestModels/createDepartmentRequest";
 import { filterUserRequest } from "@/interfaces/requestModels/filterUserRequest";
+import { updateDepartmentRequest } from "@/interfaces/requestModels/updateDepartmentRequest";
 import { DeparmentService } from "@/services/deparmentService";
 import { UserService } from "@/services/userService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
 import { VForm } from 'vuetify/components/VForm';
 const props = defineProps({
-  departmentData: {
-    type: Object,
-    required: false,
-    default: () => ({
-      id: 0,
-      name: "",
-      slogan: "",
-      numberOfMember: null,
-      managerId: "",
-    }),
-  },
+  dataId: Number,
   isDialogVisible: {
     type: Boolean,
     required: true,
@@ -32,7 +22,7 @@ const dataManager = ref([]);
 const departmentData = ref(structuredClone(toRaw(props.departmentData)));
 
 watch(props, () => {
-  updateDepartment.value = structuredClone(toRaw(updateDepartment.value));
+  departmentData.value = structuredClone(toRaw(updateDepartment.value));
 });
 
 const onFormSubmit = () => {
@@ -44,7 +34,7 @@ const onFormSubmit = () => {
 };
 
 const onFormReset = () => {
-  updateDepartment.value = structuredClone(toRaw(updateDepartment.value));
+  departmentData.value = structuredClone(toRaw(updateDepartment.value));
   emit("update:isDialogVisible", false);
 };
 
@@ -52,10 +42,12 @@ const dialogModelValueUpdate = (val) => {
   emit("update:isDialogVisible", val);
 };
 
+
+
 const onClickButtonSubmit = async () => {
   try{
     loading.value = false;
-    updateDepartment.value.id = departmentData.id
+    updateDepartment.value.id = props.dataId
     const result = await DeparmentService.updateDepartment(updateDepartment.value);
     console.log(result);
     if(result.status === 200){
@@ -117,7 +109,7 @@ onMounted(async () => {
 
     <VCard class="pa-sm-8 pa-5">
       <VCardItem class="text-center">
-        <VCardTitle class="text-h5 mb-3"> Add new department </VCardTitle>
+        <VCardTitle class="text-h5 mb-3"> Update department </VCardTitle>
         <p class="mb-0">Updating user details will receive a privacy audit.</p>
       </VCardItem>
 
@@ -127,12 +119,12 @@ onMounted(async () => {
           <VRow>
             <!-- 👉 First Name -->
             <VCol cols="12">
-              <AppTextField v-model="createDepartment.name" label="Name" />
+              <AppTextField v-model="updateDepartment.name" label="Name" />
             </VCol>
 
             <!-- 👉 Last Name -->
             <VCol cols="12">
-              <AppTextField v-model="createDepartment.slogan" label="Slogan" />
+              <AppTextField v-model="updateDepartment.slogan" label="Slogan" />
             </VCol>
 
             <!-- 👉 Status -->
@@ -144,7 +136,7 @@ onMounted(async () => {
               <VSelect
                 class="select-ant mb-5"
                 ref="select"
-                v-model="createDepartment.managerId"
+                v-model="updateDepartment.managerId"
                 item-value="id"
                 item-title="fullName"
                 :items="dataManager"
