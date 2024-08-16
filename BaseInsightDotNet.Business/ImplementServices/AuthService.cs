@@ -34,7 +34,9 @@ namespace BaseInsightDotNet.Business.ImplementServices
         private readonly IRepository<RefreshToken> _refreshTokenRepository;
         private readonly IRepository<ApplicationUserRole> _userRoleRepository;
         private readonly IRepository<ApplicationRole> _roleRepository;
-        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IConfiguration configuration, UserConverter converter, IRepository<RefreshToken> refreshTokenRepository, IRepository<ApplicationUserRole> userRoleRepository, IRepository<ApplicationRole> roleRepository)
+        private readonly IRepository<Department> _departmentRepository;
+        private readonly IRepository<ApplicationUser> _userRepository;
+        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IConfiguration configuration, UserConverter converter, IRepository<RefreshToken> refreshTokenRepository, IRepository<ApplicationUserRole> userRoleRepository, IRepository<ApplicationRole> roleRepository, IRepository<Department> departmentRepository, IRepository<ApplicationUser> userRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -44,6 +46,8 @@ namespace BaseInsightDotNet.Business.ImplementServices
             _refreshTokenRepository = refreshTokenRepository;
             _userRoleRepository = userRoleRepository;
             _roleRepository = roleRepository;
+            _departmentRepository = departmentRepository;
+            _userRepository = userRepository;
         }
 
         public async Task AssignRoleToUserAsync(List<string> roles, ApplicationUser user)
@@ -109,7 +113,12 @@ namespace BaseInsightDotNet.Business.ImplementServices
                 if (result.Succeeded)
                 {
                     //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
+                    var department = await _departmentRepository.GetAsync(record => record.Id == registerUser.DepartmentId);
+                    if(department != null)
+                    {
+                        department.NumberOfMember = _userRepository.GetAllAsync(record => record.DepartmentId == registerUser.DepartmentId).Result.Select(item => item.Id).ToHashSet().Count();
+                        await _departmentRepository.UpdateAsync(department);
+                    }
                      var resultAddRole =  await _userManager.AddToRolesAsync(user, new List<string> { "User" });
                     return new ResponseObject<DataResponseUser>
                     {
