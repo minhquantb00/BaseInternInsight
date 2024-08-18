@@ -1,11 +1,14 @@
 <script setup>
 import { paginationMeta } from "@/@fake-db/utils";
+import ConfirmDeleteDialog from "@/components/ConfirmDeleteDialog.vue";
 import { filterDepartmentRequest } from "@/interfaces/requestModels/filerDepartmentRequest";
 import { filterUserRequest } from "@/interfaces/requestModels/filterUserRequest";
 import ModalUpdateDepartment from "@/pages/department/modules/ModalUpdateDepartment.vue";
 import { DeparmentService } from "@/services/deparmentService";
 import { UserService } from "@/services/userService";
 import { onMounted } from "vue";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { VDataTableServer } from "vuetify/labs/VDataTable";
 import ModalAddDepartment from "./department/modules/ModalAddDepartment.vue";
 const totalInvoices = ref(0);
@@ -18,6 +21,7 @@ const props = defineProps({
     required: true,
   },
 });
+const instance = getCurrentInstance();
 const filterUser = ref(filterUserRequest);
 const isDepartmentAddDialogVisible = ref(false);
 const isDepartmentUpdateDialogVisible = ref(false);
@@ -32,6 +36,8 @@ const options = ref({
 const isLoading = ref(false);
 const currentPage = ref(1);
 const dataId = ref();
+const departmentId = ref();
+
 
 currentPage.value = options.value.page;
 
@@ -111,6 +117,33 @@ const refreshData = async () => {
 const openDialogUpdateDepartment = (id) => {
   isDepartmentUpdateDialogVisible.value = true;
   dataId.value = id
+}
+
+const onConfirmed = async () => {
+  try{
+    const result = await DeparmentService.deleteDepartment(departmentId.value);
+    toast(result, {
+      type: "success",
+      transition: "flip",
+      "autoClose": 2000,
+      theme: "dark",
+      dangerouslyHTMLString: true,
+    });
+    await getAllDepartment(filterDepartment.value);
+  }catch(error){
+    toast(error, {
+      type: "error",
+      transition: "flip",
+      "autoClose": 2000,
+      theme: "dark",
+      dangerouslyHTMLString: true,
+    });
+  }
+}
+
+const onclickDeleteItem = (id) => {
+  departmentId.value = id;
+  instance?.refs.deleteDialog.show();
 }
 
 watchEffect(async () => {
@@ -234,11 +267,11 @@ onMounted(async () => {
         <!-- Actions -->
         <template #item.actions="{ item }">
           <IconBtn @click="openDialogUpdateDepartment(item.raw.id)">
-            <VIcon icon="tabler-trash" />
+            <VIcon icon="tabler-settings-check" />
           </IconBtn>
 
-          <IconBtn>
-            <VIcon icon="tabler-eye" />
+          <IconBtn @click="onclickDeleteItem(item.raw.id)">
+            <VIcon icon="tabler-trash" />
           </IconBtn>
         </template>
 
@@ -296,6 +329,12 @@ onMounted(async () => {
       :dataId="dataId"
       @submit="refreshData"
     />
+    <ConfirmDeleteDialog
+      @onConfirmed="onConfirmed"
+      title="Xác nhận"
+      content="Bạn có muốn xóa không"
+      ref="deleteDialog"
+    ></ConfirmDeleteDialog>
   </div>
 </template>
 

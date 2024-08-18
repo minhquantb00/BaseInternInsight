@@ -3,6 +3,7 @@ using BaseInsightDotNet.Commons.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,5 +28,8 @@ namespace BaseInsightDotNet.Core.Entities
         public string? SignatureA { get; set; }
         public string? SignatureB { get; set; }
         public bool IsSubsidized { get; set; } = false;
+        public virtual ICollection<ContractAllowance>? ContractAllowances { get; set; }
+        public virtual ICollection<ContractHistory>? ContractHistories { get; set; }
+        public virtual ICollection<ContractAppendix>? ContractAppendices { get; set; }
     }
 }

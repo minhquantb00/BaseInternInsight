@@ -5,6 +5,7 @@ import { DeparmentService } from "@/services/deparmentService";
 import { UserService } from "@/services/userService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { VForm } from 'vuetify/components/VForm';
 const props = defineProps({
   dataId: Number,
@@ -41,8 +42,6 @@ const onFormReset = () => {
 const dialogModelValueUpdate = (val) => {
   emit("update:isDialogVisible", val);
 };
-
-
 
 const onClickButtonSubmit = async () => {
   try{

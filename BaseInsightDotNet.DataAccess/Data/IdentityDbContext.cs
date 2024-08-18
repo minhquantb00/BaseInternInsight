@@ -32,6 +32,9 @@ namespace BaseInsightDotNet.DataAccess.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Payroll> Payrolls { get; set; }
+        public DbSet<ContractHistory> ContractHistory { get; set; }
+        public DbSet<ContractAppendix> ContractAppendices { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
