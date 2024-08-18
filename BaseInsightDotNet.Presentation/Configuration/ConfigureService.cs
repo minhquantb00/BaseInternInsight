@@ -40,6 +40,9 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IRepository<Position>, Repository<Position>>();
             services.AddScoped<PositionConverter>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRepository<ContractType>, Repository<ContractType>>();
+            services.AddScoped<ContractTypeConverter>();
+            services.AddScoped<IContractTypeService, ContractTypeService>();
         }
     }
 }
