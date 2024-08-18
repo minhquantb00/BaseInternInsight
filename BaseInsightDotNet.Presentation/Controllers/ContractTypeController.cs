@@ -49,7 +49,7 @@ namespace BaseInsightDotNet.Presentation.Controllers
             return Ok(result);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetContractTypeById([FromRoute] Guid id)
         {
             var result = await _contractTypeService.GetContractTypeById(id);
