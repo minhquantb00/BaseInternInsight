@@ -1,8 +1,6 @@
 <script setup>
-import { filterUserRequest } from "@/interfaces/requestModels/filterUserRequest";
-import { updateDepartmentRequest } from "@/interfaces/requestModels/updateDepartmentRequest";
-import { DeparmentService } from "@/services/deparmentService";
-import { UserService } from "@/services/userService";
+import { updateContractTypeRequest } from "@/interfaces/requestModels/contractType/updateContractTypeRequest";
+import { ContractTypeService } from "@/services/contractTypeService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
@@ -16,15 +14,8 @@ const props = defineProps({
 });
 const refVForm = ref()
 const loading = ref(false);
-const updateDepartment = ref(updateDepartmentRequest);
+const updateContractType = ref(updateContractTypeRequest);
 const emit = defineEmits(["submit", "update:isDialogVisible"]);
-const filterUser = ref(filterUserRequest);
-const dataManager = ref([]);
-const departmentData = ref(structuredClone(toRaw(props.departmentData)));
-
-watch(props, () => {
-  departmentData.value = structuredClone(toRaw(updateDepartment.value));
-});
 
 const onFormSubmit = () => {
 
@@ -35,7 +26,6 @@ const onFormSubmit = () => {
 };
 
 const onFormReset = () => {
-  departmentData.value = structuredClone(toRaw(updateDepartment.value));
   emit("update:isDialogVisible", false);
 };
 
@@ -46,8 +36,8 @@ const dialogModelValueUpdate = (val) => {
 const onClickButtonSubmit = async () => {
   try{
     loading.value = false;
-    updateDepartment.value.id = props.dataId
-    const result = await DeparmentService.updateDepartment(updateDepartment.value);
+    updateContractType.value.id = props.dataId
+    const result = await ContractTypeService.updateContractType(updateContractType.value);
     console.log(result);
     if(result.status === 200){
       loading.value = true;
@@ -85,16 +75,6 @@ const onClickButtonSubmit = async () => {
     loading.value = false;
   }
 }
-
-const getAllUser = async () => {
-  const result = await UserService.getAllUsers(filterUser);
-  dataManager.value = result;
-}
-
-
-onMounted(async () => {
-  await getAllUser();
-});
 </script>
 
 <template>
@@ -108,7 +88,7 @@ onMounted(async () => {
 
     <VCard class="pa-sm-8 pa-5">
       <VCardItem class="text-center">
-        <VCardTitle class="text-h5 mb-3"> Update department </VCardTitle>
+        <VCardTitle class="text-h5 mb-3"> Update contract type </VCardTitle>
         <p class="mb-0">Updating user details will receive a privacy audit.</p>
       </VCardItem>
 
@@ -118,30 +98,15 @@ onMounted(async () => {
           <VRow>
             <!-- 👉 First Name -->
             <VCol cols="12">
-              <AppTextField v-model="updateDepartment.name" label="Name" />
+              <AppTextField v-model="updateContractType.name" label="Name" />
             </VCol>
 
             <!-- 👉 Last Name -->
             <VCol cols="12">
-              <AppTextField v-model="updateDepartment.slogan" label="Slogan" />
+              <AppTextField v-model="updateContractType.description" label="Description" />
             </VCol>
 
-            <!-- 👉 Status -->
-            <VCol cols="12">
-              <VLabel
-                style="font-size: 13px; color: #d0d4f1c7; margin-bottom: 4px"
-                >Manager</VLabel
-              >
-              <VSelect
-                class="select-ant mb-5"
-                ref="select"
-                v-model="updateDepartment.managerId"
-                item-value="id"
-                item-title="fullName"
-                :items="dataManager"
-              >
-              </VSelect>
-            </VCol>
+            
 
             <!-- 👉 Submit and Cancel -->
             <VCol cols="12" class="d-flex flex-wrap justify-center gap-4">

@@ -24,6 +24,7 @@ namespace BaseInsightDotNet.Core.Entities
         public virtual Position? Position { get; set; }
         public virtual ICollection<Notification>? Notifications { get; set; }
         public virtual ICollection<Contract>? Contracts { get; set; }
+        public virtual ICollection<Payroll>? Payrolls { get; set; }
         public bool? IsDeleted { get; set; } = false;
     }
 }
