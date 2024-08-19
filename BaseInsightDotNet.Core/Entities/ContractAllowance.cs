@@ -15,5 +15,8 @@ namespace BaseInsightDotNet.Core.Entities
         public virtual Contract? Contract { get; set; }
         public Guid AllowanceId { get; set; }
         public virtual Allowance? Allowance { get; set; }
+
+        public DateTime EffectiveDate { get; set; }
+        public DateTime? ExpiredDate { get; set; }
     }
 }
