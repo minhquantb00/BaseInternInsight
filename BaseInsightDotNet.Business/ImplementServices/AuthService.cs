@@ -101,6 +101,17 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     PositionId = registerUser.PositionId,
                     IsDeleted = false
                 };
+
+                List<string> listAccount = await _userRepository.GetAllAsync(record => record.IsDeleted == false).Result.Select(item => item.Account).Distinct().ToListAsync();
+                
+                if(listAccount != null)
+                {
+                    user.Account = GenerateUniqueAccount(registerUser.FullName, listAccount);
+                }
+                else
+                {
+                    user.Account = GenerateAccount(registerUser.FullName);
+                }
                 IdentityResult result = null;
                 if (registerUser.Password.IsNullOrEmpty())
                 {
@@ -370,6 +381,34 @@ namespace BaseInsightDotNet.Business.ImplementServices
             var range = RandomNumberGenerator.Create();
             range.GetBytes(randomNumber);
             return Convert.ToBase64String(randomNumber);
+        }
+
+        private string GenerateUniqueAccount(string fullName, List<string> existingAccounts)
+        {
+            string account = GenerateAccount(fullName);
+
+            int counter = 1;
+            string uniqueAccount = account;
+            while (existingAccounts.Contains(uniqueAccount))
+            {
+                uniqueAccount = account + counter.ToString();
+                counter++;
+            }
+
+            existingAccounts.Add(uniqueAccount);
+
+            return uniqueAccount;
+        }
+
+        private string GenerateAccount(string fullName)
+        {
+            string[] nameParts = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            string lastName = nameParts.Last();
+
+            string initials = string.Concat(nameParts.Take(nameParts.Length - 1).Select(part => part[0].ToString().ToUpper()));
+
+            return lastName + initials;
         }
 
         private ClaimsPrincipal GetClaimsPrincipal(string accessToken)
