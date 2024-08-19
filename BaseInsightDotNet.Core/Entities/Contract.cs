@@ -24,6 +24,7 @@ namespace BaseInsightDotNet.Core.Entities
         public Enumerate.ContractStatus ContractStatus { get; set; } = Enumerate.ContractStatus.DangCho;
         public double TaxPercentage { get; set; }
         public Guid ContractTypeId { get; set; }
+        public bool? ReceiveAllowance { get; set; } = false;
         public virtual ContractType? ContractType { get; set; }
         public string? SignatureA { get; set; }
         public string? SignatureB { get; set; }
