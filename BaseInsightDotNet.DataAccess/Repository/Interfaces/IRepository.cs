@@ -20,6 +20,7 @@ namespace BaseInsightDotNet.DataAccess.Repository.Interfaces
         #endregion
         #region GetByIdAsync
         Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByIdAsync(Guid id);
         Task<TEntity> GetByIdAsync(long id);
         Task<TEntity> GetByIdAsync(List<string> includes, Expression<Func<TEntity, bool>> prodecate = null);
         #endregion
@@ -29,6 +30,7 @@ namespace BaseInsightDotNet.DataAccess.Repository.Interfaces
         #region DeleteAsync
         void Delete(TEntity entity);
         Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync(Guid id);
         Task<bool> DeleteAsync(long id);
         Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> prodecate = null);
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
@@ -42,6 +44,7 @@ namespace BaseInsightDotNet.DataAccess.Repository.Interfaces
         void Update(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> UpdateAsync(int id, TEntity entity);
+        Task<TEntity> UpdateAsync(Guid id, TEntity entity);
         Task<TEntity> UpdateAsync(long id, TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity, params object[] keyValues);
         Task<IEnumerable<TEntity>> UpdateAsync(IEnumerable<TEntity> entities);
