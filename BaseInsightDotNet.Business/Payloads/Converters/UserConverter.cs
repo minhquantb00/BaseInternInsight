@@ -21,6 +21,7 @@ namespace BaseInsightDotNet.Business.Payloads.Converters
                 PhoneNumber = user.PhoneNumber,
                 AvatarUrl = user.AvatarUrl,
                 FullName = user.FullName,
+                Account = user.Account,
             };
         }
     }

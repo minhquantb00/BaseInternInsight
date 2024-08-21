@@ -14,6 +14,7 @@ namespace BaseInsightDotNet.Core.Entities
     {
         public Enumerate.Gender Gender { get; set; } = Enumerate.Gender.Unknown;
         public DateTime DateOfBirth { get; set; }
+        public string Account {  get; set; }
         public virtual ICollection<ApplicationUserRole>? UserRoles { get; set; }
         public virtual ICollection<RefreshToken>? RefreshTokens { get; set; }
         public string FullName { get; set; }

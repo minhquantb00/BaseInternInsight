@@ -43,6 +43,9 @@ namespace BaseInsightDotNet.Presentation.Configuration
             services.AddScoped<IRepository<ContractType>, Repository<ContractType>>();
             services.AddScoped<ContractTypeConverter>();
             services.AddScoped<IContractTypeService, ContractTypeService>();
+            services.AddScoped<IRepository<Allowance>, Repository<Allowance>>();
+            services.AddScoped<AllowanceConverter>();
+            services.AddScoped<IAllowanceService, AllowanceService>();
         }
     }
 }
