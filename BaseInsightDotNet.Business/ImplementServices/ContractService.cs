@@ -327,20 +327,18 @@ namespace BaseInsightDotNet.Business.ImplementServices
                 if (contract == null)
                     throw new ArgumentNullException(nameof(contract));
 
-                if (!contract.EmployeeId.Equals(userId))
-                {
-                    throw new ArgumentException(nameof(userId), "Bạn không có quyền thực hiện chức năng này");
-                }
-
-                var defaultFolder = _mediaService.GetMediaFolders("Photos", Guid.Parse(userId)).FirstOrDefault();
+                var defaultFolder = _mediaService.GetMediaFolders("FilesUpload").FirstOrDefault();
                 if (defaultFolder == null)
                 {
                     defaultFolder = await _mediaService.CreateFolder(new Core.Entities.Media.MediaFolder { IsPublic = true, Name = "Photos" }, userId);
                 }
 
-                var signatureFiles = new Dictionary<string, string>();
+                if (request.Files.Count > 2)
+                    throw new ArgumentException("Chỉ cho phép upload tối đa 2 ảnh cho chữ ký.");
 
+                var signatureFiles = new Dictionary<string, string>();
                 int counter = 1;
+
                 foreach (var file in request.Files)
                 {
                     var mediaFile = await _mediaService.SaveFileAsync(
@@ -352,10 +350,13 @@ namespace BaseInsightDotNet.Business.ImplementServices
                         userId,
                         false);
 
-                    string signatureKey = $"Signature{counter++}";
-                    signatureFiles[signatureKey] = mediaFile.Id.ToString();
-                }
+                    if (counter == 1)
+                        signatureFiles["SignatureA"] = mediaFile.FileKey.ToString();
+                    else if (counter == 2)
+                        signatureFiles["SignatureB"] = mediaFile.FileKey.ToString();
 
+                    counter++;
+                }
                 foreach (var entry in signatureFiles)
                 {
                     var propertyInfo = contract.GetType().GetProperty(entry.Key);
@@ -364,6 +365,7 @@ namespace BaseInsightDotNet.Business.ImplementServices
                         propertyInfo.SetValue(contract, entry.Value);
                     }
                 }
+
                 await _contractRepository.UpdateAsync(contract);
             }
             catch (ArgumentNullException ex)
@@ -379,5 +381,6 @@ namespace BaseInsightDotNet.Business.ImplementServices
                 throw new Exception("Đã xảy ra lỗi trong quá trình upload và lưu ảnh.", ex);
             }
         }
+
     }
 }

@@ -1,14 +1,22 @@
 import axios from "axios";
 
-const CONTROLLER_NAME = "ContractType";
+const CONTROLLER_NAME = "Contract";
 
-const getAllContractType = async (param) => {
+const getAllContract = async (param) => {
   try {
     const result = await axios.get(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/GetAllContractTypes`,
+      `https://localhost:7130/api/${CONTROLLER_NAME}/GetAllContracts`,
       {
         params: {
           name: param.name,
+          contractTypeId: param.contractTypeId,
+          employeeId: param.employeeId,
+          contractStatus: param.contractStatus,
+          fromDate: param.fromDate,
+          toDate: param.toDate
+        },
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       }
     );
@@ -18,10 +26,10 @@ const getAllContractType = async (param) => {
   }
 };
 
-const createContractType = async (params) => {
+const createContract = async (params) => {
   try {
     const result = await axios.post(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/CreateContractType`,
+      `https://localhost:7130/api/${CONTROLLER_NAME}/CreateContract`,
       params,
       {
         headers: {
@@ -35,10 +43,10 @@ const createContractType = async (params) => {
   }
 };
 
-const updateContractType = async (params) => {
+const updateContract = async (params) => {
   try {
     const result = await axios.put(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/UpdateContractType`,
+      `https://localhost:7130/api/${CONTROLLER_NAME}/UpdateContract`,
       params,
       {
         headers: {
@@ -52,10 +60,10 @@ const updateContractType = async (params) => {
   }
 };
 
-const deleteContractType = async (id) => {
+const deleteContract = async (id) => {
   try {
     const result = await axios.delete(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/DeleteContractType/${id}`,
+      `https://localhost:7130/api/${CONTROLLER_NAME}/DeleteContract/${id}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -67,10 +75,10 @@ const deleteContractType = async (id) => {
     throw error;
   }
 };
-const getContractTypeById = async (id) => {
+const getContractById = async (id) => {
   try {
     const result = await axios.get(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/GetContractTypeById/${id}`
+      `https://localhost:7130/api/${CONTROLLER_NAME}/GetContractById/${id}`
     );
     return result.data;
   } catch (error) {
@@ -78,10 +86,10 @@ const getContractTypeById = async (id) => {
   }
 };
 
-export const ContractTypeService = {
-  getAllContractType,
-  createContractType,
-  updateContractType,
-  deleteContractType,
-  getContractTypeById,
+export const ContractService = {
+  getAllContract,
+  createContract,
+  updateContract,
+  deleteContract,
+  getContractById,
 };
