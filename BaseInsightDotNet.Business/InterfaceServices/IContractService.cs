@@ -1,6 +1,7 @@
 ﻿using BaseInsightDotNet.Business.Payloads;
 using BaseInsightDotNet.Business.Payloads.RequestModels.ContractRequest;
 using BaseInsightDotNet.Business.Payloads.ResponseModels.DataContract;
+using BaseInsightDotNet.Commons.Enums;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,8 @@ namespace BaseInsightDotNet.Business.InterfaceServices
         Task<string> DeleteContract(Guid id);
         Task<DataResponseContract> GetContractById(Guid id);
         Task<IQueryable<DataResponseContract>> GetAllContracts();
+        Task UploadPhotoContract(Guid contractId);
+
+        Task ContractInteraction(Guid contractId, Enumerate.ContractStatus status);
     }
 }
