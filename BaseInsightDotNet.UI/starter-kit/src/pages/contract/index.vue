@@ -1,10 +1,10 @@
 <script setup>
 import { paginationMeta } from "@/@fake-db/utils";
 import ConfirmDeleteDialog from "@/components/ConfirmDeleteDialog.vue";
-import { filterContractTypeRequest } from "@/interfaces/requestModels/contractType/filterContractTypeRequest";
-import ModalAddContractType from "@/pages/contractType/modules/ModalAddContractType.vue";
-import ModalUpdateContractType from "@/pages/contractType/modules/ModalUpdateContractType.vue";
-import { ContractTypeService } from "@/services/contractTypeService";
+import { filterContractRequest } from "@/interfaces/requestModels/contract/filterContractRequest";
+import ModalAddContract from "@/pages/contract/modules/ModalAddContract.vue";
+import ModalUpdateContract from "@/pages/contract/modules/ModalUpdateContract.vue";
+import { ContractService } from "@/services/contractService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
@@ -45,13 +45,17 @@ const headers = [
     sortable: false,
   },
   {
-    title: "Name",
-    key: "name",
+    title: "Employee",
+    key: "employee",
     sortable: false,
   },
   {
-    title: "Description",
-    key: "description",
+    title: "ContractTypeName",
+    key: "contractTypeName",
+  },
+  {
+    title: "ContractTypeName",
+    key: "contractTypeName",
   },
   {
     title: "Actions",

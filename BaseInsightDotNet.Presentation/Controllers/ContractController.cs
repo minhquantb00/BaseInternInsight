@@ -45,18 +45,20 @@ namespace BaseInsightDotNet.Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllContracts([FromQuery] Request_FilterContract request)
+        [Consumes(contentType: "multipart/form-data")]
+        public async Task<IActionResult> GetAllContracts([FromForm] Request_FilterContract request)
         {
             return Ok(await _contractService.GetAllContracts(request));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAllContracts([FromRoute] Guid id)
+        public async Task<IActionResult> GetContractById([FromRoute] Guid id)
         {
             return Ok(await _contractService.GetContractById(id));
         }
 
         [HttpPost("{id}")]
+        [Consumes(contentType: "multipart/form-data")]
         public async Task<IActionResult> UploadPhotoContract([FromRoute] Guid id , [FromForm] IEnumerable<IFormFile> files)
         {
             string relativePath = Path.Combine(Directory.GetCurrentDirectory(), "MediaFiles", "Admissions", "FilesUpload", "Photos");
@@ -101,8 +103,8 @@ namespace BaseInsightDotNet.Presentation.Controllers
                                 Files = list,
                                 ContractId = id
                             };
-                            var mediaFile = await _mediaService.HandleUploadPhoto(uploadFileRequest);
-                            results.Add(mediaFile);
+                            await _contractService.UploadPhotoContract(request);
+                            //results.Add(mediaFile);
                         }
                     }
                     catch (Exception ex)

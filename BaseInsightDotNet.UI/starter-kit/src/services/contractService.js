@@ -8,7 +8,6 @@ const getAllContract = async (param) => {
       `https://localhost:7130/api/${CONTROLLER_NAME}/GetAllContracts`,
       {
         params: {
-          name: param.name,
           contractTypeId: param.contractTypeId,
           employeeId: param.employeeId,
           contractStatus: param.contractStatus,
@@ -86,10 +85,31 @@ const getContractById = async (id) => {
   }
 };
 
+const uploadPhotoContract = async (id, files) => {
+  try {
+    // const formData = new FormData();
+    // files.forEach(file => {
+    //   formData.append('files', file);
+    // });
+
+    const result = await axios.post(`https://localhost:7130/api/${CONTROLLER_NAME}/UploadPhotoContract/${id}`, files, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return result.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export const ContractService = {
   getAllContract,
   createContract,
   updateContract,
   deleteContract,
   getContractById,
+  uploadPhotoContract
 };

@@ -1,17 +1,22 @@
 export default [
   {
-    title: 'Department',
+    title: 'Quản lý phòng ban',
     to: { path: 'department' },
     icon: { icon: 'tabler-brand-teams' },
   },
   {
-    title: 'Employee',
+    title: 'Quản lý nhân viên',
     to: { name: 'second-page' },
     icon: { icon: 'tabler-packages' },
   },
   {
-    title: 'Loại hợp đồng',
+    title: 'Quản lý loại hợp đồng',
     to: { path: 'contractType' },
     icon: { icon: 'tabler-packages' },
+  },
+  {
+    title: 'Quản lý hợp đồng',
+    to: { path: 'contract'},
+    icon: { icon: 'tabler-packages' }
   }
 ]
