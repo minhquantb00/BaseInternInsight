@@ -2,25 +2,30 @@
 import { paginationMeta } from "@/@fake-db/utils";
 import ConfirmDeleteDialog from "@/components/ConfirmDeleteDialog.vue";
 import { filterContractRequest } from "@/interfaces/requestModels/contract/filterContractRequest";
+import { filterContractTypeRequest } from "@/interfaces/requestModels/contractType/filterContractTypeRequest";
+import { filterUserRequest } from "@/interfaces/requestModels/filterUserRequest";
 import ModalAddContract from "@/pages/contract/modules/ModalAddContract.vue";
 import ModalUpdateContract from "@/pages/contract/modules/ModalUpdateContract.vue";
 import { ContractService } from "@/services/contractService";
+import { ContractTypeService } from "@/services/contractTypeService";
+import { UserService } from "@/services/userService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { VDataTableServer } from "vuetify/labs/VDataTable";
+
 const totalInvoices = ref(0);
 const invoices = ref([]);
 const selectedRows = ref([]);
 const props = defineProps({
-  contractTypeData: {
+  contractData: {
     type: Object,
     required: true,
   },
 });
 const instance = getCurrentInstance();
-const isContractTypeAddDialogVisible = ref(false);
-const isContractTypeUpdateDialogVisible = ref(false);
+const isContractAddDialogVisible = ref(false);
+const isContractUpdateDialogVisible = ref(false);
 const options = ref({
   page: 1,
   itemsPerPage: 10,
@@ -32,8 +37,12 @@ const options = ref({
 const isLoading = ref(false);
 const currentPage = ref(1);
 const dataId = ref();
-const contractTypeId = ref();
-
+const dataUser = ref([]);
+const filterUser = ref(filterUserRequest);
+const dataContractType = ref([])
+const filterContractType = ref(filterContractTypeRequest);
+const contractId = ref();
+const status = ref(["HetHan", "BanNhap", "DaHuy", "DaGiaHan", "DaChamDut", "DangCho"])
 
 currentPage.value = options.value.page;
 
@@ -50,12 +59,20 @@ const headers = [
     sortable: false,
   },
   {
-    title: "ContractTypeName",
-    key: "contractTypeName",
+    title: "Base Salary",
+    key: "baseSalary",
   },
   {
-    title: "ContractTypeName",
-    key: "contractTypeName",
+    title: "Salary before tax",
+    key: "salaryBeforeTax",
+  },
+  {
+    title: "Start date",
+    key: "startDate",
+  },
+  {
+    title: "End date",
+    key: "endDate",
   },
   {
     title: "Actions",
@@ -64,11 +81,15 @@ const headers = [
   },
 ];
 
-const filterContractType = ref(filterContractTypeRequest);
+const filterContract = ref(filterContractRequest);
 
-const getAllContractType = async (filter) => {
-  const result = await ContractTypeService.getAllContractType({
-    name: filter.name,
+const getAllContract = async (filter) => {
+  const result = await ContractService.getAllContract({
+    contractTypeId: filter.contractTypeId,
+    employeeId: filter.employeeId,
+    contractStatus: filter.contractStatus,
+    fromDate: filter.fromDate,
+    toDate: filter.toDate,
   });
   invoices.value = result;
   totalInvoices.value = result.length;
@@ -84,49 +105,71 @@ const totalPages = computed(() => {
   return Math.ceil((invoices.value.length * 1.0) / options.value.itemsPerPage);
 });
 
-
 const refreshData = async () => {
-  await getAllContractType(filterContractType.value);
+  await getAllContract(filterContract.value);
 };
 
-const openDialogUpdateContractType = (id) => {
-  isContractTypeUpdateDialogVisible.value = true;
-  dataId.value = id
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+const getAllUser = async () => {
+  const result = await UserService.getAllUsers(filterUser);
+  dataUser.value = result;
 }
 
+const getAllContractType = async (filter) => {
+  const result = await ContractTypeService.getAllContractType(filterContractType.value);
+  dataContractType.value = result
+};
+
+const openDialogUpdateContract = (id) => {
+  isContractUpdateDialogVisible.value = true;
+  dataId.value = id;
+};
+
 const onConfirmed = async () => {
-  try{
-    const result = await ContractTypeService.deleteContractType(contractTypeId.value);
+  try {
+    const result = await ContractService.deleteContract(
+      contractId.value
+    );
     toast(result, {
       type: "success",
       transition: "flip",
-      "autoClose": 2000,
+      autoClose: 2000,
       theme: "dark",
       dangerouslyHTMLString: true,
     });
-    await getAllContractType(filterContractType.value);
-  }catch(error){
+    await getAllContract(filterContract.value);
+  } catch (error) {
     toast(error, {
       type: "error",
       transition: "flip",
-      "autoClose": 2000,
+      autoClose: 2000,
       theme: "dark",
       dangerouslyHTMLString: true,
     });
   }
-}
+};
 
 const onclickDeleteItem = (id) => {
-  contractTypeId.value = id;
+  contractId.value = id;
   instance?.refs.deleteDialog.show();
-}
+};
 
 watchEffect(async () => {
-  await getAllContractType(filterContractType.value);
+  await getAllContract(filterContract.value);
 });
 
 onMounted(async () => {
-  await getAllContractType(filterContractType.value);
+  await getAllContract(filterContract.value);
+  await getAllUser();
+  await getAllContractType();
 });
 </script>
 
@@ -153,7 +196,7 @@ onMounted(async () => {
             prepend-icon="tabler-plus"
             variant="elevated"
             class="me-4"
-            @click="isContractTypeAddDialogVisible = true"
+            @click="isContractAddDialogVisible = true"
           >
             Create
           </VBtn>
@@ -163,11 +206,67 @@ onMounted(async () => {
 
         <div class="d-flex align-center flex-wrap gap-4">
           <!-- 👉 Search  -->
+          <div class="invoice-list-filter" style="margin-bottom: 24px;">
+            <AppDateTimePicker
+                v-model="filterContract.fromDate"
+                :format="'YYYY-MM-DD'"
+                label="From date"
+                placeholder="yyyy-mm-dd"
+                prepend-inner-icon="tabler-calendar"
+                clearable
+                class="date-picker-input"
+              />
+          </div>
+
+          <div class="invoice-list-filter" style="margin-bottom: 24px;">
+            <AppDateTimePicker
+                v-model="filterContract.toDate"
+                :format="'YYYY-MM-DD'"
+                label="To date"
+                placeholder="yyyy-mm-dd"
+                prepend-inner-icon="tabler-calendar"
+                clearable
+                class="date-picker-input"
+              />
+          </div>
+
           <div class="invoice-list-filter">
-            <AppTextField
-              v-model="filterContractType.name"
-              placeholder="Search..."
-              density="compact"
+            <AppSelect
+              v-model="filterContract.employeeId"
+              placeholder="Employee"
+              clearable
+              ref="select"
+              clear-icon="tabler-x"
+              single-line
+              item-value="id"
+              item-title="fullName"
+              :items="dataUser"
+            />
+          </div>
+
+          <div class="invoice-list-filter">
+            <AppSelect
+              v-model="filterContract.contractTypeId"
+              placeholder="ContractType"
+              clearable
+              ref="select"
+              clear-icon="tabler-x"
+              single-line
+              item-value="id"
+              item-title="name"
+              :items="dataContractType"
+            />
+          </div>
+
+          <div class="invoice-list-filter">
+            <AppSelect
+              v-model="filterContract.contractStatus"
+              placeholder="Status"
+              clearable
+              ref="select"
+              clear-icon="tabler-x"
+              single-line
+              :items="status"
             />
           </div>
         </div>
@@ -191,17 +290,29 @@ onMounted(async () => {
           {{ (options.page - 1) * options.itemsPerPage + index + 1 }}
         </template>
 
-        <template #item.name="{ item }">
-          {{ item.raw.name }}
+        <template #item.employee="{ item }">
+          {{ item.raw.employee.fullName }}
         </template>
 
-        <template #item.description="{ item }">
-          {{ item.raw.description }}
+        <template #item.baseSalary="{ item }">
+          {{ item.raw.baseSalary }} VNĐ
+        </template>
+
+        <template #item.salaryBeforeTax="{ item }">
+          {{ item.raw.salaryBeforeTax }} VNĐ
+        </template>
+
+        <template #item.startDate="{ item }">
+          {{ formatDate(item.raw.startDate) }}
+        </template>
+
+        <template #item.endDate="{ item }">
+          {{ formatDate(item.raw.endDate) }}
         </template>
 
         <!-- Actions -->
         <template #item.actions="{ item }">
-          <IconBtn @click="openDialogUpdateContractType(item.raw.id)">
+          <IconBtn @click="openDialogUpdateContract(item.raw.id)">
             <VIcon icon="tabler-settings-check" />
           </IconBtn>
 
@@ -254,13 +365,13 @@ onMounted(async () => {
       </VDataTableServer>
       <!-- !SECTION -->
     </VCard>
-    <ModalAddContractType
-      v-model:isDialogVisible="isContractTypeAddDialogVisible"
-      :contractTypeData="props.contractTypeData"
+    <ModalAddContract
+      v-model:isDialogVisible="isContractAddDialogVisible"
+      :contractData="props.contractData"
       @submit="refreshData"
     />
-    <ModalUpdateContractType
-      v-model:isDialogVisible="isContractTypeUpdateDialogVisible"
+    <ModalUpdateContract
+      v-model:isDialogVisible="isContractUpdateDialogVisible"
       :dataId="dataId"
       @submit="refreshData"
     />
@@ -281,6 +392,24 @@ onMounted(async () => {
 
   .invoice-list-filter {
     inline-size: 12rem;
+  }
+}
+.calendar-date-picker {
+  display: none;
+
+  +.flatpickr-input {
+    +.flatpickr-calendar.inline {
+      border: none;
+      box-shadow: none;
+
+      .flatpickr-months {
+        border-block-end: none;
+      }
+    }
+  }
+
+  & ~ .flatpickr-calendar .flatpickr-weekdays {
+    margin-block: 0 4px;
   }
 }
 </style>

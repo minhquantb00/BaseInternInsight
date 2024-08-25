@@ -1,6 +1,10 @@
 <script setup>
-import { updateContractTypeRequest } from "@/interfaces/requestModels/contractType/updateContractTypeRequest";
+import { updateContractRequest } from "@/interfaces/requestModels/contract/updateContractRequest";
+import { filterContractTypeRequest } from "@/interfaces/requestModels/contractType/filterContractTypeRequest";
+import { filterUserRequest } from "@/interfaces/requestModels/filterUserRequest";
+import { ContractService } from "@/services/contractService";
 import { ContractTypeService } from "@/services/contractTypeService";
+import { UserService } from "@/services/userService";
 import { onMounted } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
@@ -14,7 +18,11 @@ const props = defineProps({
 });
 const refVForm = ref()
 const loading = ref(false);
-const updateContractType = ref(updateContractTypeRequest);
+const dataUser = ref([]);
+const filterUser = ref(filterUserRequest);
+const dataContractType = ref([])
+const updateContract = ref(updateContractRequest);
+const filterContractType = ref(filterContractTypeRequest);
 const emit = defineEmits(["submit", "update:isDialogVisible"]);
 
 const onFormSubmit = () => {
@@ -33,12 +41,22 @@ const dialogModelValueUpdate = (val) => {
   emit("update:isDialogVisible", val);
 };
 
+const getAllUser = async () => {
+  const result = await UserService.getAllUsers(filterUser);
+  dataUser.value = result;
+}
+
+const getAllContractType = async (filter) => {
+  const result = await ContractTypeService.getAllContractType(filterContractType.value);
+  dataContractType.value = result
+};
+
 const onClickButtonSubmit = async () => {
   try{
     loading.value = false;
-    updateContractType.value.id = props.dataId
-    const result = await ContractTypeService.updateContractType(updateContractType.value);
-    console.log(result);
+    updateContract.value.id = props.dataId
+    console.log(updateContract.value);
+    const result = await ContractService.updateContract(updateContract.value);
     if(result.status === 200){
       loading.value = true;
       toast(result.message, {
@@ -75,6 +93,11 @@ const onClickButtonSubmit = async () => {
     loading.value = false;
   }
 }
+
+onMounted(() => {
+  getAllUser();
+  getAllContractType();
+})
 </script>
 
 <template>
@@ -88,7 +111,7 @@ const onClickButtonSubmit = async () => {
 
     <VCard class="pa-sm-8 pa-5">
       <VCardItem class="text-center">
-        <VCardTitle class="text-h5 mb-3"> Update contract type </VCardTitle>
+        <VCardTitle class="text-h5 mb-3"> Update contract </VCardTitle>
         <p class="mb-0">Updating user details will receive a privacy audit.</p>
       </VCardItem>
 
@@ -96,14 +119,75 @@ const onClickButtonSubmit = async () => {
         <!-- 👉 Form -->
         <VForm class="mt-6" ref="refVForm" @submit.prevent="onFormSubmit">
           <VRow>
+            <VCol cols="6">
+              <VLabel
+                style="font-size: 13px; color: #d0d4f1c7; margin-bottom: 4px"
+                >Employee</VLabel
+              >
+              <VSelect
+                class="select-ant mb-5"
+                ref="select"
+                v-model="updateContract.employeeId"
+                item-value="id"
+                item-title="fullName"
+                :items="dataUser"
+              >
+              </VSelect>
+            </VCol>
+
+            <VCol cols="6">
+              <VLabel
+                style="font-size: 13px; color: #d0d4f1c7; margin-bottom: 4px"
+                >Contract type</VLabel
+              >
+              <VSelect
+                class="select-ant mb-5"
+                ref="select"
+                v-model="updateContract.contractTypeId"
+                item-value="id"
+                item-title="name"
+                :items="dataContractType"
+              >
+              </VSelect>
+            </VCol>
+
+            <VCol cols="12" >
+              <AppDateTimePicker
+                v-model="updateContract.startDate"
+                :format="'YYYY-MM-DD'"
+                label="Start date"
+                placeholder="yyyy-mm-dd"
+                prepend-inner-icon="tabler-calendar"
+
+                clearable
+                class="date-picker-input"
+              />
+            </VCol>
+
+            <VCol cols="12" style="margin-bottom: 20px;">
+              <AppDateTimePicker
+                v-model="updateContract.endDate"
+                :format="'YYYY-MM-DD'"
+                label="End date"
+                placeholder="yyyy-mm-dd"
+                prepend-inner-icon="tabler-calendar"
+                clearable
+                class="date-picker-input"
+              />
+            </VCol>
+
             <!-- 👉 First Name -->
-            <VCol cols="12">
-              <AppTextField v-model="updateContractType.name" label="Name" />
+            <VCol cols="4">
+              <AppTextField v-model="updateContract.content" label="Content" />
             </VCol>
 
             <!-- 👉 Last Name -->
-            <VCol cols="12">
-              <AppTextField v-model="updateContractType.description" label="Description" />
+            <VCol cols="4">
+              <AppTextField v-model="updateContract.baseSalary" label="Base Salary" />
+            </VCol>
+
+            <VCol cols="4">
+              <AppTextField v-model="updateContract.TaxPercentage" label="Tax percentage" />
             </VCol>
 
 
