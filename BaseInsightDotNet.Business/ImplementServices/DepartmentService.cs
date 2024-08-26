@@ -178,6 +178,16 @@ namespace BaseInsightDotNet.Business.ImplementServices
                         Data = null
                     };
                 }
+                var manager = await _userRepository.GetAsync(record => record.Id.Equals(request.ManagerId));
+                if(manager == null)
+                {
+                    return new ResponseObject<DataResponseDepartment>
+                    {
+                        Status = StatusCodes.Status404NotFound,
+                        Message = "Thông tin trưởng phòng không hợp lệ",
+                        Data = null
+                    };
+                }
                 department.Slogan = !string.IsNullOrEmpty(request.Slogan) ? request.Slogan : department.Slogan;
                 department.Name = !string.IsNullOrEmpty(request.Name) ? request.Name : department.Name;
                 department.ManagerId = !string.IsNullOrEmpty(request.ManagerId) && await _userManager.FindByIdAsync(request.ManagerId) != null ? request.ManagerId : department.ManagerId;

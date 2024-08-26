@@ -70,10 +70,11 @@ namespace BaseInsightDotNet.DataAccess.Data
         }
         //private static void SeedRoles(ModelBuilder builder)
         //{
-        //    builder.Entity<ApplicationRole>().HasData
+        //    builder.Entity<IdentityRole>().HasData
         //        (
-        //            new ApplicationRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
-        //            new ApplicationRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
+        //            //new ApplicationRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
+        //            //new ApplicationRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" },
+        //            new IdentityRole() { Name = "Manager", ConcurrencyStamp = "3", NormalizedName = "Manager" }
         //        );
         //}
 

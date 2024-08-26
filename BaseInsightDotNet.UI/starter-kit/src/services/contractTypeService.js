@@ -70,12 +70,7 @@ const deleteContractType = async (id) => {
 const getContractTypeById = async (id) => {
   try {
     const result = await axios.get(
-      `https://localhost:7130/api/${CONTROLLER_NAME}/GetContractTypeById/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
+      `https://localhost:7130/api/${CONTROLLER_NAME}/GetContractTypeById/${id}`
     );
     return result.data;
   } catch (error) {

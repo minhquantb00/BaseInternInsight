@@ -102,6 +102,18 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
             return false;
         }
 
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            var dataEntity = await DBSet.FindAsync(id);
+            if (dataEntity != null)
+            {
+                DBSet.Remove(dataEntity);
+                await _IDbContext.CommitChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
         public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> prodecate = null)
         {
             var dataEntity = prodecate != null ? DBSet.Where(prodecate) : null;
@@ -184,6 +196,10 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
         {
             return await DBSet.FindAsync(id);
         }
+        public async Task<TEntity> GetByIdAsync(Guid id)
+        {
+            return await DBSet.FindAsync(id);
+        }
 
         public async Task<TEntity> GetByIdAsync(List<string> includes, Expression<Func<TEntity, bool>> prodecate = null)
         {
@@ -232,6 +248,17 @@ namespace BaseInsightDotNet.DataAccess.Repository.Implements
         }
 
         public async Task<TEntity> UpdateAsync(long id, TEntity entity)
+        {
+            var Data = await DBSet.FindAsync(id);
+            if (Data != null)
+            {
+                _dbContext.Entry(entity).State = EntityState.Modified;
+                await _IDbContext.CommitChangesAsync();
+            }
+            return entity;
+        }
+
+        public async Task<TEntity> UpdateAsync(Guid id, TEntity entity)
         {
             var Data = await DBSet.FindAsync(id);
             if (Data != null)

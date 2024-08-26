@@ -26,7 +26,7 @@ namespace BaseInsightDotNet.Business.Payloads.Converters
             {
                 Id = entity.Id,
                 CreateTime = entity.CreateTime,
-                Manager = manager != null ? _userConverter.EntityToDTO(manager.Result) : null,
+                Manager = manager.Result != null ? _userConverter.EntityToDTO(manager.Result) : null,
                 Name = entity.Name,
                 NumberOfMember = entity.NumberOfMember,
                 Slogan = entity.Slogan,
