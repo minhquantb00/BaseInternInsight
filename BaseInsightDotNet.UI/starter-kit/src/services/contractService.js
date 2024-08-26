@@ -14,9 +14,6 @@ const getAllContract = async (param) => {
           fromDate: param.fromDate,
           toDate: param.toDate
         },
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
       }
     );
     return result.data;

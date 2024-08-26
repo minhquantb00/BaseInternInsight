@@ -34,7 +34,8 @@ namespace BaseInsightDotNet.Presentation.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpdateContract([FromBody] Request_UpdateContract request)
         {
-            return Ok(await _contractService.UpdateContract(request));
+            var result = await _contractService.UpdateContract(request);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
@@ -46,7 +47,7 @@ namespace BaseInsightDotNet.Presentation.Controllers
 
         [HttpGet]
         [Consumes(contentType: "multipart/form-data")]
-        public async Task<IActionResult> GetAllContracts([FromForm] Request_FilterContract request)
+        public async Task<IActionResult> GetAllContracts([FromQuery] Request_FilterContract request)
         {
             return Ok(await _contractService.GetAllContracts(request));
         }

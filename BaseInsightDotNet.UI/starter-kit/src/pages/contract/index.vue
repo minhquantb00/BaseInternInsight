@@ -83,7 +83,7 @@ const headers = [
 
 const filterContract = ref(filterContractRequest);
 
-const getAllContract = async (filter) => {
+const getAllContracts = async (filter) => {
   const result = await ContractService.getAllContract({
     contractTypeId: filter.contractTypeId,
     employeeId: filter.employeeId,
@@ -106,7 +106,7 @@ const totalPages = computed(() => {
 });
 
 const refreshData = async () => {
-  await getAllContract(filterContract.value);
+  await getAllContracts(filterContract.value);
 };
 
 const formatDate = (dateString) => {
@@ -145,7 +145,7 @@ const onConfirmed = async () => {
       theme: "dark",
       dangerouslyHTMLString: true,
     });
-    await getAllContract(filterContract.value);
+    await getAllContracts(filterContract.value);
   } catch (error) {
     toast(error, {
       type: "error",
@@ -163,13 +163,13 @@ const onclickDeleteItem = (id) => {
 };
 
 watchEffect(async () => {
-  await getAllContract(filterContract.value);
+  await getAllContracts(filterContract.value);
 });
 
 onMounted(async () => {
-  await getAllContract(filterContract.value);
   await getAllUser();
   await getAllContractType();
+  await getAllContracts(filterContract.value);
 });
 </script>
 
