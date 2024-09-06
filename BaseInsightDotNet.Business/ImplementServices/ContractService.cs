@@ -206,7 +206,6 @@ namespace BaseInsightDotNet.Business.ImplementServices
             return _contractConverter.EntityToDTO(query);
         }
 
-
         public async Task<ResponseObject<DataResponseContract>> UpdateContract(Request_UpdateContract request)
         {
             var currentUser = _httpContextAccessor.HttpContext.User;
@@ -239,7 +238,8 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     Data = null
                 };
             }
-            ContractType contractType = new ContractType();
+
+            ContractType contractType = null;
             if (request.ContractTypeId != null && request.ContractTypeId != Guid.Empty)
             {
                 contractType = await _contractTypeRepository.GetAsync(record => record.Id == request.ContractTypeId);
@@ -253,7 +253,8 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     };
                 }
             }
-            ApplicationUser employee = new ApplicationUser();
+
+            ApplicationUser employee = null;
             if (!string.IsNullOrEmpty(request.EmployeeId))
             {
                 employee = await _userManager.FindByIdAsync(request.EmployeeId);
@@ -268,14 +269,22 @@ namespace BaseInsightDotNet.Business.ImplementServices
                 }
             }
 
-            contract.StartDate = request.StartDate != null ? request.StartDate : contract.StartDate;
-            contract.EndDate = request.EndDate != null ? request.EndDate : contract.EndDate;
-            contract.ContractTypeId = request.ContractTypeId != null && request.ContractTypeId != Guid.Empty ? request.ContractTypeId : contract.ContractTypeId;
+            // Cập nhật giá trị, sử dụng null-coalescing hoặc toán tử điều kiện
+            contract.StartDate = request.StartDate ?? contract.StartDate;
+            contract.EndDate = request.EndDate ?? contract.EndDate;
+            contract.ContractTypeId = request.ContractTypeId != null && request.ContractTypeId != Guid.Empty ? (Guid)request.ContractTypeId : contract.ContractTypeId;
             contract.Content = !string.IsNullOrEmpty(request.Content) ? request.Content : contract.Content;
-            contract.BaseSalary = request.BaseSalary != null ? request.BaseSalary : contract.BaseSalary;
+            contract.BaseSalary = request.BaseSalary ?? contract.BaseSalary;
             contract.EmployeeId = !string.IsNullOrEmpty(request.EmployeeId) ? request.EmployeeId : contract.EmployeeId;
-            contract.TaxPercentage = request.TaxPercentage != null ? request.TaxPercentage : contract.TaxPercentage;
-            contract.SalaryBeforeTax = request.TaxPercentage != null && request.BaseSalary != null ? request.BaseSalary - (request.BaseSalary * request.TaxPercentage) : contract.SalaryBeforeTax;
+            contract.TaxPercentage = request.TaxPercentage ?? contract.TaxPercentage;
+
+
+            if (request.BaseSalary.HasValue || request.TaxPercentage.HasValue)
+            {
+                var baseSalary = request.BaseSalary ?? contract.BaseSalary;
+                var taxPercentage = request.TaxPercentage ?? contract.TaxPercentage;
+                contract.SalaryBeforeTax = baseSalary - (baseSalary * taxPercentage);
+            }
 
             if (contractType != null)
             {
@@ -290,7 +299,6 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     contract.ReceiveAllowance = true;
                 }
             }
-
 
             try
             {
@@ -312,9 +320,9 @@ namespace BaseInsightDotNet.Business.ImplementServices
                     Data = null
                 };
             }
-
-
         }
+
+
 
         public async Task UploadPhotoContract(Request_UploadPhotoContract request)
         {

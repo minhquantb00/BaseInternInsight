@@ -55,7 +55,15 @@ const onClickButtonSubmit = async () => {
   try{
     loading.value = false;
     updateContract.value.id = props.dataId
-    console.log(updateContract.value);
+    if (updateContract.value.contractTypeId) {
+      try {
+        const contractTypeGuid = updateContract.value.contractTypeId.trim(); // Xử lý trim trước khi kiểm tra
+        updateContract.value.contractTypeId = contractTypeGuid;
+      } catch (error) {
+        throw new Error("Invalid Contract Type ID format");
+      }
+    }
+
     const result = await ContractService.updateContract(updateContract.value);
     if(result.status === 200){
       loading.value = true;
