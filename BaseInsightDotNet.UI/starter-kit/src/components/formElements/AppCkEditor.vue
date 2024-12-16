@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="app-ckeditor"
-    :class="$attrs.class"
-  >
+  <div class="app-ckeditor" :class="$attrs.class">
     <VLabel
       v-if="label"
       :for="elementId"
@@ -17,10 +14,10 @@
       }"
       :focused="isFocused"
     >
-      <div style="width: 100%;">
+      <div style="width: 100%">
         <ckeditor
           :editor="ClassicEditor"
-          v-bind="{...$attrs}"
+          v-bind="{ ...$attrs }"
           @focus="isFocused = true"
           @blur="isFocused = false"
         ></ckeditor>
@@ -33,7 +30,7 @@
 import { ClassicEditor } from "@/plugins/ckEditor/ClassicEditor";
 
 defineOptions({
-  name: 'AppCkEditor',
+  name: "AppCkEditor",
   inheritAttrs: false,
 });
 
@@ -51,6 +48,4 @@ const label = computed(() => useAttrs().label);
 const isFocused = ref(false);
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

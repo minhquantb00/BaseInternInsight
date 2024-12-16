@@ -26,7 +26,6 @@ namespace BaseInsightDotNet.Presentation.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> UploadPhoto([FromForm] IEnumerable<IFormFile> files)
         {
-            // Đường dẫn tương đối (liên quan đến thư mục gốc của ứng dụng)
             string relativePath = Path.Combine(Directory.GetCurrentDirectory(), "MediaFiles", "Admissions", "FilesUpload", "Photos");
 
             if (!Directory.Exists(relativePath))
